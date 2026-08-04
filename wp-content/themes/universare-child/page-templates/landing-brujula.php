@@ -148,7 +148,11 @@ $whatsapp_url  = apply_filters(
 	<section class="bru-section">
 		<div class="bru-container bru-work">
 			<div class="bru-work__visual">
-				<div class="bru-work__visual-inner" aria-hidden="true"></div>
+				<div
+					class="bru-work__visual-inner"
+					aria-hidden="true"
+					style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/compass-maze.png' ); ?>');"
+				></div>
 			</div>
 			<div class="bru-work__content">
 				<h2 class="bru-section__title bru-section__title--left">

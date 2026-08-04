@@ -181,7 +181,9 @@
 .bru-work__visual-inner {
 	position: absolute;
 	inset: 0;
-	background: url('../../images/compass-maze.png') 42% 18% / cover no-repeat;
+	background-position: 42% 18%;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .bru-pillar {
@@ -281,14 +283,14 @@
 	position: relative;
 }
 
-.bru-final-cta h2 {
+.bru-landing .bru-final-cta h2 {
 	font-family: var(--bru-serif);
 	font-size: clamp(1.75rem, 4vw, 2.65rem);
 	font-weight: 500;
 	max-width: 38rem;
 	margin: 0 auto 2rem;
 	line-height: 1.28;
-	color: var(--bru-white);
+	color: #ffffff;
 	text-shadow:
 		0 1px 3px rgb(0 0 0 / 70%),
 		0 4px 24px rgb(0 0 0 / 55%);

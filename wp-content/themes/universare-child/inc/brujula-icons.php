@@ -19,7 +19,7 @@ function universare_brujula_icon( string $name, array $args = array() ): string 
 	$size  = isset( $args['size'] ) ? (int) $args['size'] : 96;
 	$class = 'bru-icon' . ( ! empty( $args['class'] ) ? ' ' . esc_attr( $args['class'] ) : '' );
 
-	$s = 'stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"';
+	$s = 'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
 
 	$icons = array(
 		'logo' => '<circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.1"/>'

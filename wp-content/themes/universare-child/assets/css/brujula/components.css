@@ -11,6 +11,12 @@
 	overflow: visible;
 }
 
+.bru-icon-wrap .bru-icon,
+.bru-step__icon .bru-icon,
+.bru-logo .bru-icon {
+	color: var(--bru-icon-color);
+}
+
 .bru-icon--sm { width: var(--bru-icon-sm); height: var(--bru-icon-sm); }
 .bru-icon--md { width: var(--bru-icon-md); height: var(--bru-icon-md); }
 .bru-icon--lg { width: var(--bru-icon-lg); height: var(--bru-icon-lg); }
