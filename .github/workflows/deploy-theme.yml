@@ -8,6 +8,7 @@ on:
       - 'wp-content/themes/universare-child/**'
       - 'wp-content/mu-plugins/**'
       - '.github/workflows/deploy-theme.yml'
+  workflow_dispatch:
 
 concurrency:
   group: deploy-theme-production
