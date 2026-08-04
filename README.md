@@ -67,7 +67,7 @@ studio list    # confirm site path
 studio start   # if stopped
 ```
 
-Activate **Universare Child** in local WP Admin (requires **Hello Elementor** parent on both local and live).
+Activate **Universare Child** in WP Admin. Parent theme is **Astra** (already on live and local).
 
 ## First-time live setup
 
@@ -88,5 +88,5 @@ After the first successful deploy:
 
 ## Requirements
 
-- Parent theme **Hello Elementor** installed on server (standard with Elementor sites)
+- Parent theme **Astra** installed on server (live active theme)
 - cPanel Git repo with clean working tree before deploy
