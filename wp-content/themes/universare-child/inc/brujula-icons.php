@@ -127,17 +127,6 @@ function universare_brujula_icon( string $name, array $args = array() ): string 
 }
 
 /**
- * Compass + maze artwork for the work section.
- */
-function universare_brujula_compass_maze(): string {
-	$uri = get_stylesheet_directory_uri() . '/assets/images/compass-maze.png';
-	return sprintf(
-		'<img class="bru-work__visual-img" src="%s" alt="" loading="lazy" decoding="async">',
-		esc_url( $uri )
-	);
-}
-
-/**
  * Large compass + labyrinth for insight section.
  */
 function universare_brujula_compass_hero(): string {

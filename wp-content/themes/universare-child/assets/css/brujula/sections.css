@@ -173,24 +173,15 @@
 	border: var(--bru-border);
 	border-radius: var(--bru-radius-card);
 	overflow: hidden;
-	height: 100%;
 	min-height: 280px;
+	aspect-ratio: 1 / 1;
 	padding: 0;
 }
 
 .bru-work__visual-inner {
 	position: absolute;
 	inset: 0;
-}
-
-.bru-work__visual-img {
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	display: block;
-	object-fit: cover;
-	object-position: top left;
+	background: url('../../images/compass-maze.png') 42% 18% / cover no-repeat;
 }
 
 .bru-pillar {
@@ -363,6 +354,15 @@
 		grid-template-columns: minmax(240px, 2fr) minmax(0, 3fr);
 		gap: 2rem;
 		align-items: stretch;
+	}
+
+	.bru-work__visual {
+		aspect-ratio: auto;
+		height: 100%;
+	}
+
+	.bru-work__visual-inner {
+		background-position: 38% 10%;
 	}
 
 	.bru-work .bru-grid--4 {
