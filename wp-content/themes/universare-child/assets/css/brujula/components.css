@@ -1,0 +1,229 @@
+/**
+ * Brújula components — buttons, cards, icons, nav
+ */
+
+/* ── Icons ── */
+.bru-icon {
+	display: inline-block;
+	vertical-align: middle;
+	color: var(--bru-icon-color);
+	flex-shrink: 0;
+}
+
+.bru-icon--sm { width: 28px; height: 28px; }
+.bru-icon--md { width: 40px; height: 40px; }
+.bru-icon--lg { width: 52px; height: 52px; }
+
+.bru-icon-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1rem;
+	min-height: 52px;
+}
+
+/* ── Buttons ── */
+.bru-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.8rem 1.5rem;
+	border: 1px solid var(--bru-gold);
+	background: var(--bru-gold);
+	color: var(--bru-white);
+	font-family: var(--bru-sans);
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	border-radius: var(--bru-radius-btn);
+	transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+	cursor: pointer;
+}
+
+.bru-btn:hover {
+	background: var(--bru-gold-dark);
+	border-color: var(--bru-gold-dark);
+	color: var(--bru-white);
+}
+
+.bru-btn--light {
+	background: var(--bru-white);
+	border-color: var(--bru-white);
+	color: var(--bru-brown);
+}
+
+.bru-btn--light:hover {
+	background: var(--bru-beige);
+	border-color: var(--bru-beige);
+	color: var(--bru-brown);
+}
+
+/* ── Header ── */
+.bru-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: rgb(250 246 240 / 96%);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgb(184 149 107 / 14%);
+}
+
+.bru-header__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.85rem 0;
+}
+
+.bru-logo {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	font-family: var(--bru-serif);
+	font-size: 1.05rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--bru-brown);
+}
+
+.bru-logo .bru-icon {
+	color: var(--bru-gold-dark);
+}
+
+.bru-nav {
+	display: none;
+	gap: 1.75rem;
+	font-size: 0.72rem;
+	font-weight: 500;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	color: var(--bru-muted);
+}
+
+.bru-nav a:hover {
+	color: var(--bru-gold-dark);
+}
+
+.bru-menu-toggle {
+	display: inline-flex;
+	background: none;
+	border: 1px solid var(--bru-gold);
+	color: var(--bru-gold-dark);
+	padding: 0.45rem 0.75rem;
+	font-size: 0.75rem;
+	border-radius: var(--bru-radius-btn);
+	cursor: pointer;
+}
+
+/* ── Cards ── */
+.bru-grid {
+	display: grid;
+	gap: var(--bru-gap);
+}
+
+.bru-grid--4 {
+	grid-template-columns: 1fr;
+}
+
+.bru-card {
+	background: var(--bru-white);
+	border: var(--bru-border);
+	border-radius: var(--bru-radius-card);
+	box-shadow: var(--bru-shadow-card);
+	padding: 2rem 1.25rem 1.75rem;
+	text-align: center;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.bru-card__text {
+	font-size: 0.88rem;
+	color: var(--bru-muted);
+	margin: 0;
+	line-height: 1.55;
+	max-width: 16rem;
+}
+
+.bru-card__title {
+	display: block;
+	font-family: var(--bru-serif);
+	font-size: 1.05rem;
+	color: var(--bru-brown);
+	margin-bottom: 0.35rem;
+}
+
+.bru-card--soft {
+	background: var(--bru-cream);
+	border-color: rgb(184 149 107 / 18%);
+}
+
+/* ── Footer ── */
+.bru-footer {
+	background: var(--bru-white);
+	border-top: 1px solid rgb(184 149 107 / 14%);
+	padding: 1.5rem 0;
+}
+
+.bru-footer__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	font-size: 0.78rem;
+	color: var(--bru-muted);
+}
+
+.bru-social {
+	display: flex;
+	gap: 0.75rem;
+}
+
+.bru-social a {
+	width: 2.1rem;
+	height: 2.1rem;
+	border: 1px solid rgb(184 149 107 / 35%);
+	border-radius: var(--bru-radius-pill);
+	display: grid;
+	place-items: center;
+	font-size: 0.7rem;
+	font-weight: 600;
+	color: var(--bru-gold-dark);
+}
+
+.bru-social a:hover {
+	background: var(--bru-gold);
+	border-color: var(--bru-gold);
+	color: var(--bru-white);
+}
+
+@media (min-width: 768px) {
+	.bru-nav { display: flex; }
+	.bru-menu-toggle { display: none; }
+	.bru-grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 767px) {
+	.bru-nav.is-open {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: var(--bru-cream);
+		padding: 1rem 4vw;
+		border-bottom: 1px solid rgb(184 149 107 / 14%);
+	}
+
+	.bru-header__inner {
+		position: relative;
+		flex-wrap: wrap;
+	}
+}

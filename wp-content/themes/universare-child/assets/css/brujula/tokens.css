@@ -1,0 +1,49 @@
+/**
+ * Brújula design tokens — edit here to retheme the landing.
+ */
+.bru-landing {
+	/* Colors */
+	--bru-cream: #faf6f0;
+	--bru-beige: #ebe3d6;
+	--bru-beige-deep: #e0d5c4;
+	--bru-gold: #b8956b;
+	--bru-gold-dark: #9a7348;
+	--bru-gold-light: #c9b08a;
+	--bru-brown: #4a3f36;
+	--bru-text: #4a4038;
+	--bru-muted: #6f655c;
+	--bru-white: #ffffff;
+
+	/* Semantic */
+	--bru-icon-color: var(--bru-gold-dark);
+	--bru-mark-no-bg: #f3e4e4;
+	--bru-mark-no-fg: #b85454;
+	--bru-mark-yes-bg: #e8f0e4;
+	--bru-mark-yes-fg: #5f7d52;
+
+	/* Typography */
+	--bru-serif: "Cormorant Garamond", Georgia, serif;
+	--bru-sans: "Montserrat", "Helvetica Neue", sans-serif;
+
+	/* Spacing */
+	--bru-section-y: 4.5rem;
+	--bru-gap: 1.25rem;
+	--bru-container: min(1140px, 92vw);
+
+	/* Radii */
+	--bru-radius-btn: 8px;
+	--bru-radius-card: 10px;
+	--bru-radius-pill: 999px;
+
+	/* Shadows & borders */
+	--bru-border: 1px solid rgb(184 149 107 / 22%);
+	--bru-shadow-card: 0 2px 12px rgb(74 63 54 / 6%);
+
+	/* Final CTA overlay */
+	--bru-cta-overlay: linear-gradient(
+		105deg,
+		rgb(35 28 22 / 82%) 0%,
+		rgb(45 36 28 / 68%) 45%,
+		rgb(30 24 18 / 78%) 100%
+	);
+}

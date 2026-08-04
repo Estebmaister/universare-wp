@@ -26,7 +26,7 @@ $cta_url = apply_filters( 'universare_brujula_cta_url', '#agendar' );
 	<header class="bru-header">
 		<div class="bru-container bru-header__inner">
 			<a class="bru-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<span class="bru-logo__icon" aria-hidden="true">✦</span>
+				<?php echo universare_brujula_icon( 'logo', array( 'size' => 28, 'class' => 'bru-icon--sm' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<span>Brújula</span>
 			</a>
 			<nav class="bru-nav" id="bru-nav" aria-label="<? esc_attr_e( 'Navegación principal', 'universare-child' ); ?>">
@@ -63,15 +63,17 @@ $cta_url = apply_filters( 'universare_brujula_cta_url', '#agendar' );
 			<div class="bru-grid bru-grid--4">
 				<?php
 				$feelings = array(
-					'〰️' => __( 'Tu mente no para y sientes que estás en muchos lugares a la vez.', 'universare-child' ),
-					'📖' => __( 'Has leído, escuchado y probado cosas, pero nada parece encajar del todo.', 'universare-child' ),
-					'☁️' => __( 'Sabes que algo debe cambiar, pero no sabes por dónde empezar.', 'universare-child' ),
-					'🌀' => __( 'Te cuesta distinguir si es agotamiento, confusión o un llamado interior.', 'universare-child' ),
+					'scribble' => __( 'Tu mente no para y sientes que estás en muchos lugares a la vez.', 'universare-child' ),
+					'book'     => __( 'Has leído, escuchado y probado cosas, pero nada parece encajar del todo.', 'universare-child' ),
+					'cloud'    => __( 'Sabes que algo debe cambiar, pero no sabes por dónde empezar.', 'universare-child' ),
+					'spiral'   => __( 'Te cuesta distinguir si es agotamiento, confusión o un llamado interior.', 'universare-child' ),
 				);
 				foreach ( $feelings as $icon => $text ) :
 					?>
 					<article class="bru-card">
-						<div class="bru-card__icon" aria-hidden="true"><?php echo esc_html( $icon ); ?></div>
+						<div class="bru-icon-wrap" aria-hidden="true">
+							<?php echo universare_brujula_icon( $icon, array( 'size' => 48, 'class' => 'bru-icon--lg' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</div>
 						<p class="bru-card__text"><?php echo esc_html( $text ); ?></p>
 					</article>
 				<?php endforeach; ?>
@@ -79,14 +81,14 @@ $cta_url = apply_filters( 'universare_brujula_cta_url', '#agendar' );
 		</div>
 	</section>
 
-	<section class="bru-section bru-section--beige">
+	<section class="bru-section bru-section--beige bru-insight">
 		<div class="bru-container">
 			<h2 class="bru-section__title">
-				<? esc_html_e( 'A veces el problema no es la crisis.', 'universare-child' ); ?><br>
-				<? esc_html_e( 'Es intentar resolverla sin comprender lo que realmente ocurre.', 'universare-child' ); ?>
+				<span class="bru-insight__title-line"><? esc_html_e( 'A veces el problema no es la crisis.', 'universare-child' ); ?></span>
+				<span class="bru-insight__title-line bru-insight__title-line--accent"><? esc_html_e( 'Es intentar resolverla sin comprender lo que realmente ocurre.', 'universare-child' ); ?></span>
 			</h2>
 			<div class="bru-compass-wrap">
-				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/compass-placeholder.svg' ); ?>" alt="" width="280" height="280" loading="lazy">
+				<?php echo universare_brujula_compass_hero(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 			<div class="bru-vs">
 				<div class="bru-vs__col">
@@ -101,11 +103,18 @@ $cta_url = apply_filters( 'universare_brujula_cta_url', '#agendar' );
 						);
 						foreach ( $avoid as $item ) :
 							?>
-							<li><span class="bru-vs__mark bru-vs__mark--no">✕</span><?php echo esc_html( $item ); ?></li>
+							<li>
+								<span class="bru-vs__mark bru-vs__mark--no">
+									<?php echo universare_brujula_icon( 'cross', array( 'size' => 12 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								</span>
+								<?php echo esc_html( $item ); ?>
+							</li>
 						<?php endforeach; ?>
 					</ul>
 				</div>
-				<div class="bru-vs__center"><span class="bru-vs__badge">VS</span></div>
+				<div class="bru-vs__center">
+					<span class="bru-vs__badge">VS</span>
+				</div>
 				<div class="bru-vs__col">
 					<h3><? esc_html_e( 'Lo que realmente necesitamos', 'universare-child' ); ?></h3>
 					<ul class="bru-vs__list">
@@ -118,7 +127,12 @@ $cta_url = apply_filters( 'universare_brujula_cta_url', '#agendar' );
 						);
 						foreach ( $need as $item ) :
 							?>
-							<li><span class="bru-vs__mark bru-vs__mark--yes">✓</span><?php echo esc_html( $item ); ?></li>
+							<li>
+								<span class="bru-vs__mark bru-vs__mark--yes">
+									<?php echo universare_brujula_icon( 'check', array( 'size' => 14 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								</span>
+								<?php echo esc_html( $item ); ?>
+							</li>
 						<?php endforeach; ?>
 					</ul>
 				</div>
@@ -132,22 +146,27 @@ $cta_url = apply_filters( 'universare_brujula_cta_url', '#agendar' );
 				<div class="bru-work__visual-inner">Brújula</div>
 			</div>
 			<div>
-				<h2 class="bru-section__title" style="text-align: left; margin-bottom: 1.5rem;">
+				<h2 class="bru-section__title bru-section__title--left">
 					<? esc_html_e( 'En tu Sesión BRÚJULA vamos a trabajar en:', 'universare-child' ); ?>
 				</h2>
 				<div class="bru-grid bru-grid--4">
 					<?php
 					$pillars = array(
-						'🍃' => array( __( 'Comprender', 'universare-child' ), __( 'Lo que estás viviendo y qué te está moviendo por dentro.', 'universare-child' ) ),
-						'🪞' => array( __( 'Descubrir', 'universare-child' ), __( 'Patrones, creencias y emociones que influyen en tu presente.', 'universare-child' ) ),
-						'💛' => array( __( 'Ordenar', 'universare-child' ), __( 'Ideas dispersas para ver con más perspectiva.', 'universare-child' ) ),
-						'✦'  => array( __( 'Orientarte', 'universare-child' ), __( 'Hacia un siguiente paso claro y sostenible.', 'universare-child' ) ),
+						'leaf'    => array( __( 'Comprender', 'universare-child' ), __( 'Lo que estás viviendo y qué te está moviendo por dentro.', 'universare-child' ) ),
+						'mirror'  => array( __( 'Descubrir', 'universare-child' ), __( 'Patrones, creencias y emociones que influyen en tu presente.', 'universare-child' ) ),
+						'heart'   => array( __( 'Ordenar', 'universare-child' ), __( 'Ideas dispersas para ver con más perspectiva.', 'universare-child' ) ),
+						'compass' => array( __( 'Orientarte', 'universare-child' ), __( 'Hacia un siguiente paso claro y sostenible.', 'universare-child' ) ),
 					);
 					foreach ( $pillars as $icon => $data ) :
 						?>
-						<article class="bru-card">
-							<div class="bru-card__icon" aria-hidden="true"><?php echo esc_html( $icon ); ?></div>
-							<p class="bru-card__text"><strong><?php echo esc_html( $data[0] ); ?></strong><br><?php echo esc_html( $data[1] ); ?></p>
+						<article class="bru-card bru-pillar">
+							<div class="bru-icon-wrap" aria-hidden="true">
+								<?php echo universare_brujula_icon( $icon, array( 'size' => 44, 'class' => 'bru-icon--md' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							</div>
+							<p class="bru-card__text">
+								<span class="bru-card__title"><?php echo esc_html( $data[0] ); ?></span>
+								<?php echo esc_html( $data[1] ); ?>
+							</p>
 						</article>
 					<?php endforeach; ?>
 				</div>
@@ -168,38 +187,45 @@ $cta_url = apply_filters( 'universare_brujula_cta_url', '#agendar' );
 			<div class="bru-steps">
 				<?php
 				$steps = array(
-					array( '1', '📅', __( 'Agenda tu sesión', 'universare-child' ) ),
-					array( '2', '💬', __( 'Conversamos en profundidad', 'universare-child' ) ),
-					array( '3', '🧭', __( 'Exploramos tu mapa interior', 'universare-child' ) ),
-					array( '4', '✎', __( 'Sales con claridad y foco', 'universare-child' ) ),
+					array( '1', 'calendar', __( 'Agenda tu sesión', 'universare-child' ) ),
+					array( '2', 'chat', __( 'Conversamos en profundidad', 'universare-child' ) ),
+					array( '3', 'compass', __( 'Exploramos tu mapa interior', 'universare-child' ) ),
+					array( '4', 'pen', __( 'Sales con claridad y foco', 'universare-child' ) ),
 				);
 				foreach ( $steps as $step ) :
 					?>
 					<div class="bru-step">
 						<div class="bru-step__num"><?php echo esc_html( $step[0] ); ?></div>
-						<div class="bru-step__icon" aria-hidden="true"><?php echo esc_html( $step[1] ); ?></div>
+						<div class="bru-step__icon" aria-hidden="true">
+							<?php echo universare_brujula_icon( $step[1], array( 'size' => 40, 'class' => 'bru-icon--md' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</div>
 						<p class="bru-step__label"><?php echo esc_html( $step[2] ); ?></p>
+						<span class="bru-step__arrow" aria-hidden="true">
+							<?php echo universare_brujula_icon( 'arrow', array( 'size' => 24, 'class' => 'bru-icon--sm' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</span>
 					</div>
 				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>
 
-	<section class="bru-section bru-section--beige" id="para-quien">
+	<section class="bru-section bru-section--beige bru-section--cards" id="para-quien">
 		<div class="bru-container">
 			<h2 class="bru-section__title"><? esc_html_e( 'Esta sesión es para ti si hoy sientes que…', 'universare-child' ); ?></h2>
 			<div class="bru-grid bru-grid--4">
 				<?php
 				$for_you = array(
-					'🌿' => __( 'Has perdido el norte y necesitas volver a ti.', 'universare-child' ),
-					'💭' => __( 'Piensas demasiado y actúas poco (o al revés).', 'universare-child' ),
-					'🔆' => __( 'Buscas claridad antes de dar un gran salto.', 'universare-child' ),
-					'🛤️' => __( 'Estás en una encrucijada y quieres decidir con conciencia.', 'universare-child' ),
+					'sprout'  => __( 'Has perdido el norte y necesitas volver a ti.', 'universare-child' ),
+					'thought' => __( 'Piensas demasiado y actúas poco (o al revés).', 'universare-child' ),
+					'sun'     => __( 'Buscas claridad antes de dar un gran salto.', 'universare-child' ),
+					'path'    => __( 'Estás en una encrucijada y quieres decidir con conciencia.', 'universare-child' ),
 				);
 				foreach ( $for_you as $icon => $text ) :
 					?>
 					<article class="bru-card">
-						<div class="bru-card__icon" aria-hidden="true"><?php echo esc_html( $icon ); ?></div>
+						<div class="bru-icon-wrap" aria-hidden="true">
+							<?php echo universare_brujula_icon( $icon, array( 'size' => 48, 'class' => 'bru-icon--lg' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</div>
 						<p class="bru-card__text"><?php echo esc_html( $text ); ?></p>
 					</article>
 				<?php endforeach; ?>
@@ -208,16 +234,16 @@ $cta_url = apply_filters( 'universare_brujula_cta_url', '#agendar' );
 	</section>
 
 	<section class="bru-final-cta" id="agendar">
-		<div class="bru-container">
-			<h2><? esc_html_e( 'Tu crisis no tiene por qué definirte. Puede ser el inicio de una nueva dirección.', 'universare-child' ); ?></h2>
-			<a class="bru-btn" href="<?php echo esc_url( $cta_url ); ?>"><? esc_html_e( 'Agendar mi sesión Brújula', 'universare-child' ); ?> →</a>
+		<div class="bru-container bru-final-cta__inner">
+			<h2><? esc_html_e( 'Tu crisis no tiene por qué definirte. Puede convertirse en el comienzo de una comprensión más profunda.', 'universare-child' ); ?></h2>
+			<a class="bru-btn bru-btn--light" href="<?php echo esc_url( $cta_url ); ?>"><? esc_html_e( 'Agendar mi sesión Brújula', 'universare-child' ); ?> →</a>
 		</div>
 	</section>
 
 	<footer class="bru-footer">
 		<div class="bru-container bru-footer__inner">
 			<a class="bru-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<span class="bru-logo__icon" aria-hidden="true">✦</span>
+				<?php echo universare_brujula_icon( 'logo', array( 'size' => 28, 'class' => 'bru-icon--sm' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<span>Brújula</span>
 			</a>
 			<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Brújula · <? esc_html_e( 'Universare', 'universare-child' ); ?></p>

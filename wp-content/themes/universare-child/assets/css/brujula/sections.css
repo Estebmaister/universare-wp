@@ -1,0 +1,337 @@
+/**
+ * Brújula section-specific styles
+ */
+
+/* ── Hero ── */
+.bru-hero {
+	position: relative;
+	min-height: 78vh;
+	display: grid;
+	align-items: center;
+	overflow: hidden;
+	background:
+		linear-gradient(90deg, var(--bru-cream) 40%, rgb(250 246 240 / 15%) 100%),
+		url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
+}
+
+.bru-hero__content {
+	position: relative;
+	z-index: 2;
+	max-width: 34rem;
+	padding: 4rem 0;
+}
+
+.bru-hero__title {
+	font-family: var(--bru-serif);
+	font-size: clamp(2.2rem, 5vw, 3.4rem);
+	line-height: 1.12;
+	font-weight: 500;
+	color: var(--bru-brown);
+	margin: 0 0 1.25rem;
+}
+
+.bru-hero__text {
+	font-size: 0.95rem;
+	color: var(--bru-muted);
+	margin-bottom: 1.75rem;
+	max-width: 30rem;
+}
+
+/* ── Insight + VS ── */
+.bru-insight__title-line {
+	display: block;
+}
+
+.bru-insight__title-line + .bru-insight__title-line {
+	margin-top: 0.35rem;
+}
+
+.bru-insight__title-line--accent {
+	color: var(--bru-gold-dark);
+}
+
+.bru-compass-wrap {
+	display: flex;
+	justify-content: center;
+	margin: 2rem 0 3rem;
+}
+
+.bru-compass-hero {
+	width: min(280px, 72vw);
+	margin-inline: auto;
+	opacity: 0.92;
+}
+
+.bru-vs {
+	display: grid;
+	gap: 1.5rem;
+	align-items: center;
+	max-width: 920px;
+	margin-inline: auto;
+}
+
+.bru-vs__col h3 {
+	font-family: var(--bru-serif);
+	font-size: 1.25rem;
+	margin: 0 0 1.25rem;
+	color: var(--bru-brown);
+	font-weight: 500;
+}
+
+.bru-vs__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.bru-vs__list li {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 0.9rem;
+	font-size: 0.9rem;
+	color: var(--bru-muted);
+	line-height: 1.4;
+}
+
+.bru-vs__mark {
+	flex-shrink: 0;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: var(--bru-radius-pill);
+	display: grid;
+	place-items: center;
+}
+
+.bru-vs__mark--no {
+	background: var(--bru-mark-no-bg);
+	color: var(--bru-mark-no-fg);
+}
+
+.bru-vs__mark--no .bru-icon {
+	color: var(--bru-mark-no-fg);
+	width: 12px;
+	height: 12px;
+}
+
+.bru-vs__mark--yes {
+	background: var(--bru-mark-yes-bg);
+	color: var(--bru-mark-yes-fg);
+}
+
+.bru-vs__mark--yes .bru-icon {
+	color: var(--bru-mark-yes-fg);
+	width: 14px;
+	height: 14px;
+}
+
+.bru-vs__center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem 0;
+	min-width: 3.5rem;
+	position: relative;
+}
+
+.bru-vs__badge {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.75rem, 4vw, 2.25rem);
+	color: var(--bru-gold);
+	font-weight: 600;
+	line-height: 1;
+	position: relative;
+	z-index: 1;
+	background: var(--bru-beige);
+	padding: 0.35rem 0.5rem;
+}
+
+.bru-vs__divider {
+	display: none;
+}
+
+/* ── Work / pillars ── */
+.bru-work {
+	display: grid;
+	gap: 2.5rem;
+	align-items: center;
+}
+
+.bru-work__visual {
+	background: var(--bru-beige-deep);
+	border: var(--bru-border);
+	border-radius: var(--bru-radius-card);
+	padding: 1.5rem;
+	text-align: center;
+}
+
+.bru-work__visual-inner {
+	aspect-ratio: 4 / 3;
+	background: linear-gradient(145deg, #fff 0%, var(--bru-beige) 100%);
+	border-radius: calc(var(--bru-radius-card) - 4px);
+	display: grid;
+	place-items: center;
+	font-family: var(--bru-serif);
+	font-size: 1.35rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--bru-gold-dark);
+}
+
+.bru-pillar .bru-card__text {
+	max-width: 14rem;
+}
+
+/* ── Quote band ── */
+.bru-quote-band {
+	text-align: center;
+	padding-block: 3.5rem;
+}
+
+.bru-quote-band p {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.35rem, 3vw, 1.85rem);
+	color: var(--bru-brown);
+	max-width: 38rem;
+	margin: 0 auto 1.75rem;
+	line-height: 1.45;
+}
+
+/* ── Steps ── */
+.bru-steps {
+	display: grid;
+	gap: 2rem;
+}
+
+.bru-step {
+	text-align: center;
+	position: relative;
+}
+
+.bru-step__num {
+	width: 2.25rem;
+	height: 2.25rem;
+	margin: 0 auto 0.65rem;
+	border-radius: var(--bru-radius-pill);
+	background: var(--bru-gold);
+	color: var(--bru-white);
+	display: grid;
+	place-items: center;
+	font-weight: 600;
+	font-size: 0.85rem;
+}
+
+.bru-step__icon {
+	margin-bottom: 0.5rem;
+}
+
+.bru-step__label {
+	font-size: 0.82rem;
+	color: var(--bru-muted);
+	margin: 0 auto;
+	max-width: 9rem;
+	line-height: 1.45;
+}
+
+.bru-step__arrow {
+	display: none;
+	position: absolute;
+	top: 2.35rem;
+	right: -0.65rem;
+	transform: translateX(50%);
+	color: var(--bru-gold-light);
+	pointer-events: none;
+}
+
+/* ── Card contrast on beige sections ── */
+.bru-section--cards .bru-card {
+	background: var(--bru-white);
+	border-color: rgb(184 149 107 / 32%);
+	box-shadow: 0 4px 18px rgb(74 63 54 / 8%);
+}
+
+/* ── Final CTA ── */
+.bru-final-cta {
+	position: relative;
+	padding: 6rem 0;
+	text-align: center;
+	color: var(--bru-white);
+	background:
+		var(--bru-cta-overlay),
+		url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
+}
+
+.bru-final-cta__inner {
+	position: relative;
+	z-index: 1;
+}
+
+.bru-final-cta h2 {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.75rem, 4vw, 2.65rem);
+	font-weight: 500;
+	max-width: 38rem;
+	margin: 0 auto 1.75rem;
+	line-height: 1.22;
+	text-shadow: 0 2px 18px rgb(0 0 0 / 35%);
+}
+
+@media (min-width: 768px) {
+	.bru-vs {
+		grid-template-columns: 1fr auto 1fr;
+		gap: 1.5rem 2rem;
+		align-items: center;
+	}
+
+	.bru-vs__col:first-child {
+		text-align: right;
+	}
+
+	.bru-vs__col:first-child .bru-vs__list li {
+		flex-direction: row-reverse;
+	}
+
+	.bru-vs__col:first-child h3 {
+		text-align: right;
+	}
+
+	.bru-vs__center::before,
+	.bru-vs__center::after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		width: 1px;
+		background: rgb(184 149 107 / 35%);
+		transform: translateX(-50%);
+	}
+
+	.bru-vs__center::before {
+		top: 0;
+		height: calc(50% - 1.25rem);
+	}
+
+	.bru-vs__center::after {
+		bottom: 0;
+		height: calc(50% - 1.25rem);
+	}
+
+	.bru-work {
+		grid-template-columns: 0.9fr 1.1fr;
+	}
+
+	.bru-steps {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0;
+		align-items: start;
+	}
+
+	.bru-step:not(:last-child) .bru-step__arrow {
+		display: block;
+	}
+}
+
+@media (min-width: 992px) {
+	.bru-vs {
+		gap: 2rem 3rem;
+	}
+}

@@ -1,0 +1,82 @@
+/**
+ * Brújula base & layout
+ */
+
+.bru-landing {
+	font-family: var(--bru-sans);
+	color: var(--bru-text);
+	background: var(--bru-cream);
+	line-height: 1.6;
+}
+
+.bru-landing *,
+.bru-landing *::before,
+.bru-landing *::after {
+	box-sizing: border-box;
+}
+
+.bru-landing img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+.bru-landing a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.bru-container {
+	width: var(--bru-container);
+	margin-inline: auto;
+}
+
+.bru-gold {
+	color: var(--bru-gold-dark);
+}
+
+.bru-section {
+	padding-block: var(--bru-section-y);
+}
+
+.bru-section--beige {
+	background: var(--bru-beige);
+}
+
+.bru-section__title {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.75rem, 3.5vw, 2.45rem);
+	text-align: center;
+	color: var(--bru-brown);
+	margin: 0 0 2.5rem;
+	font-weight: 500;
+	line-height: 1.25;
+}
+
+.bru-section__title--left {
+	text-align: left;
+	margin-bottom: 1.5rem;
+}
+
+.bru-section__title em,
+.bru-section__title .bru-gold {
+	font-style: normal;
+	color: var(--bru-gold-dark);
+}
+
+/* Hide Astra chrome */
+body.page-template-page-templates-landing-brujula-php .site-header,
+body.page-template-page-templates-landing-brujula-php .site-footer,
+body.page-template-page-templates-landing-brujula-php #ast-scroll-top {
+	display: none !important;
+}
+
+body.page-template-page-templates-landing-brujula-php #page {
+	margin: 0;
+}
+
+@media (max-width: 767px) {
+	.bru-section {
+		padding-block: 3rem;
+	}
+}
