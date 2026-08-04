@@ -49,3 +49,4 @@ wp-config.php
 # OS / editor
 .DS_Store
 *.swp
+.playwright-screenshots/

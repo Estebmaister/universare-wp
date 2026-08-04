@@ -16,16 +16,16 @@
   <circle cx="160" cy="160" r="72" stroke="#c9b08a" stroke-width="1" opacity="0.6"/>
   <circle cx="160" cy="160" r="52" stroke="#c9b08a" stroke-width="1.1" opacity="0.7"/>
   <circle cx="160" cy="160" r="32" stroke="#c9b08a" stroke-width="1.2" opacity="0.85"/>
-  <!-- Maze arcs -->
-  <path d="M160 28 A132 132 0 0 1 292 160" stroke="#c9b08a" stroke-width="1" opacity="0.45"/>
-  <path d="M292 160 A132 132 0 0 1 160 292" stroke="#c9b08a" stroke-width="1" opacity="0.45"/>
-  <path d="M160 292 A132 132 0 0 1 28 160" stroke="#c9b08a" stroke-width="1" opacity="0.45"/>
-  <path d="M28 160 A132 132 0 0 1 160 28" stroke="#c9b08a" stroke-width="1" opacity="0.45"/>
-  <path d="M160 48 A112 112 0 0 0 48 160" stroke="#c9b08a" stroke-width="1" opacity="0.5"/>
-  <path d="M272 160 A112 112 0 0 0 160 272" stroke="#c9b08a" stroke-width="1" opacity="0.5"/>
+  <!-- Maze arcs between rings (r=122 and r=82 — no overlap with circle strokes) -->
+  <path d="M160 38 A122 122 0 0 1 282 160" stroke="#c9b08a" stroke-width="1" opacity="0.45"/>
+  <path d="M282 160 A122 122 0 0 1 160 282" stroke="#c9b08a" stroke-width="1" opacity="0.45"/>
+  <path d="M160 282 A122 122 0 0 1 38 160" stroke="#c9b08a" stroke-width="1" opacity="0.45"/>
+  <path d="M38 160 A122 122 0 0 1 160 38" stroke="#c9b08a" stroke-width="1" opacity="0.45"/>
+  <path d="M160 78 A82 82 0 0 0 78 160" stroke="#c9b08a" stroke-width="1" opacity="0.5"/>
+  <path d="M242 160 A82 82 0 0 0 160 242" stroke="#c9b08a" stroke-width="1" opacity="0.5"/>
   <!-- Compass face -->
   <circle cx="160" cy="160" r="22" stroke="#b8956b" stroke-width="1.2" opacity="0.9"/>
-  <path d="M160 108v16M160 196v16M108 160h16M196 160h16" stroke="#c9b08a" stroke-width="0.8" opacity="0.35"/>
+  <path d="M160 138v44M138 160h44" stroke="#c9b08a" stroke-width="0.8" opacity="0.35"/>
   <!-- Needle -->
   <path d="M160 122 L171 160 L160 151 L149 160 Z" fill="url(#needle-top)"/>
   <path d="M160 198 L149 160 L160 169 L171 160 Z" fill="url(#needle-bottom)"/>

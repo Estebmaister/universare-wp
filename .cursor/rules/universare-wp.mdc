@@ -1,0 +1,27 @@
+---
+description: Universare WP repo context — paths, deploy, Brújula landing architecture
+alwaysApply: true
+---
+
+# Universare WP
+
+Read **`docs/cursor-context.md`** for full compressed project memory.
+
+## Essentials
+
+- **Repo:** `~/dev/maister/universare-wp` → GitHub `Estebmaister/universare-wp`, branch `main`
+- **Live:** https://universare.com/landing/ — child theme on **Astra**, deploy via **GitHub Actions FTP** on push (`.github/workflows/deploy-theme.yml`)
+- **Local:** WordPress Studio at `~/Studio/universare-com-20260803` → http://universare.wp.local/landing/ — theme/mu-plugins **symlinked** to this repo
+- **Do not commit:** `universare-local-dev.php`, screenshots, reference images
+
+## Brújula landing (main feature)
+
+- Template: `page-templates/landing-brujula.php`
+- CSS: `assets/css/brujula/{tokens,base,components,sections}.css` via `landing-brujula.css`
+- Icons: `inc/brujula-icons.php` — slug keys in template arrays
+- Work photo: `assets/images/compass-maze.png` (full-bleed in `.bru-work__visual`)
+- After deploy: purge LiteSpeed cache if styles stale; bump `style.css` Version
+
+## After repo path changes
+
+Update Studio symlinks under `~/Studio/universare-com-20260803/wp-content/` to point at `~/dev/maister/universare-wp/...`.

@@ -132,7 +132,7 @@ function universare_brujula_icon( string $name, array $args = array() ): string 
 function universare_brujula_compass_maze(): string {
 	$uri = get_stylesheet_directory_uri() . '/assets/images/compass-maze.png';
 	return sprintf(
-		'<img class="bru-work__visual-img" src="%s" alt="" width="473" height="257" loading="lazy" decoding="async">',
+		'<img class="bru-work__visual-img" src="%s" alt="" loading="lazy" decoding="async">',
 		esc_url( $uri )
 	);
 }
