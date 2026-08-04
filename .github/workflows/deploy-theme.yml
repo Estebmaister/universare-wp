@@ -1,0 +1,47 @@
+name: Deploy theme to production
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'wp-content/themes/universare-child/**'
+      - 'wp-content/mu-plugins/**'
+      - '.github/workflows/deploy-theme.yml'
+
+concurrency:
+  group: deploy-theme-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy child theme via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: wp-content/themes/universare-child/
+          server-dir: public_html/wp-content/themes/universare-child/
+          dangerous-clean-slate: false
+          log-level: minimal
+
+      - name: Deploy mu-plugin via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: wp-content/mu-plugins/
+          server-dir: public_html/wp-content/mu-plugins/
+          dangerous-clean-slate: false
+          log-level: minimal

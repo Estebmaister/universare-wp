@@ -20,29 +20,52 @@ This repo does **not** contain the full WordPress site. It tracks:
 
 ## Deploy to production
 
-### Option A — cPanel UI (manual pull deploy)
+### Option A — GitHub Actions FTP (automatic on push) **recommended**
+
+On push to `main`, theme and mu-plugin files deploy via FTP when those paths change.
+
+**GitHub → Settings → Secrets and variables → Actions → New repository secret:**
+
+| Secret | Value |
+|--------|-------|
+| `FTP_HOST` | `ftp.universare.com` (or `15.235.87.145`) |
+| `FTP_USER` | `univers3` |
+| `FTP_PASSWORD` | your cPanel password |
+
+Workflow: `.github/workflows/deploy-theme.yml`
+
+After deploy: purge **LiteSpeed Cache** on live if styles don't update.
+
+### Option B — cPanel Git (manual, 2 clicks)
 
 1. Push changes to `main` on GitHub
 2. cPanel → **Control de versión de Git** → `universare-wp`
 3. **Extraer o desplegar** → **Actualizar desde remoto**
 4. **Desplegar commit HEAD**
 
-### Option B — Push from local (auto-deploy)
+## Local development (WordPress Studio)
 
-After cPanel cloned the repo, add the cPanel remote and push:
+Studio site on this machine:
 
-```bash
-git push cpanel main
+```text
+Path: ~/Studio/universare-com-20260803/
+URL:  http://universare.wp.local
 ```
 
-cPanel runs `.cpanel.yml` automatically on push when the repo includes that file.
+Theme is symlinked from this repo (edit in `~/Projects/universare-wp`, changes appear in Studio):
 
-## Local development
+```text
+~/Studio/universare-com-20260803/wp-content/themes/universare-child
+  -> ~/Projects/universare-wp/wp-content/themes/universare-child
+```
 
-1. Clone this repo
-2. Copy `wp-content/themes/universare-child/` into your WordPress Studio site:
-   `~/Studio/universare/wp-content/themes/universare-child/`
-3. Activate **Universare Child** in WP Admin (requires **Hello Elementor** parent on both local and live)
+```bash
+export PATH="$HOME/.studio/bin:$PATH"
+studio list    # confirm site path
+studio start   # if stopped
+```
+
+Activate **Universare Child** in local WP Admin (requires **Hello Elementor** parent on both local and live).
 
 ## First-time live setup
 
