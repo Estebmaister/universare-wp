@@ -20,8 +20,12 @@
 # Configuration
 wp-config.php
 
-# Example themes
+# Example themes (bundled with WordPress core)
 /wp-content/themes/twenty*/
+
+# Track only our custom theme in this repo
+/wp-content/themes/*
+!/wp-content/themes/universare-child/
 
 # Example plugin
 /wp-content/plugins/hello.php
@@ -35,14 +39,13 @@ wp-config.php
 # htaccess
 /.htaccess
 
-# All plugins
-#
-# Note: If you wish to whitelist plugins,
-# uncomment the next line
-#/wp-content/plugins
+# Secrets and local env
+.env
+.env.*
 
-# All themes
-#
-# Note: If you wish to whitelist themes,
-# uncomment the next line
-#/wp-content/themes
+# All plugins (managed on server / WP admin, not Git)
+/wp-content/plugins/
+
+# OS / editor
+.DS_Store
+*.swp
