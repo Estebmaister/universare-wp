@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <circle cx="100" cy="100" r="88" stroke="#b8956b" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="100" cy="100" r="62" stroke="#b8956b" stroke-width="1" opacity="0.35"/>
+  <path d="M100 28 L108 92 L100 100 L92 92 Z" fill="#9a7348" opacity="0.85"/>
+  <path d="M100 172 L92 108 L100 100 L108 108 Z" fill="#c4a574" opacity="0.5"/>
+  <circle cx="100" cy="100" r="6" fill="#9a7348"/>
+  <text x="100" y="18" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#9a7348">N</text>
+</svg>

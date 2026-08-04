@@ -3,9 +3,7 @@ deployment:
   tasks:
     - export THEME_DEST=/home/univers3/public_html/wp-content/themes/universare-child
     - /bin/mkdir -p $THEME_DEST
-    - /bin/cp wp-content/themes/universare-child/style.css $THEME_DEST/
-    - /bin/cp wp-content/themes/universare-child/functions.php $THEME_DEST/
-    - /bin/cp wp-content/themes/universare-child/theme.json $THEME_DEST/
+    - /bin/cp -R wp-content/themes/universare-child/. $THEME_DEST/
     - export MU_DEST=/home/univers3/public_html/wp-content/mu-plugins
     - /bin/mkdir -p $MU_DEST
     - /bin/cp wp-content/mu-plugins/universare-bootstrap.php $MU_DEST/

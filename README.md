@@ -86,6 +86,16 @@ After the first successful deploy:
 | Plugins | WP Admin on each environment |
 | Database | phpMyAdmin / WP Migrate DB |
 
+## Brújula landing page
+
+After deploy, visit **https://universare.com/landing/** (auto-created on first site load).
+
+- Template: `page-templates/landing-brujula.php`
+- Styles: `assets/css/landing-brujula.css`
+- Edit copy in the template file, or filter `universare_brujula_cta_url` for booking links
+
+**Subdomain (optional):** cPanel → Subdominios → `landing.universare.com` → Redirect to `https://universare.com/landing/`
+
 ## Requirements
 
 - Parent theme **Astra** installed on server (live active theme)
