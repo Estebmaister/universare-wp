@@ -29,8 +29,10 @@ On push to `main`, theme and mu-plugin files deploy via FTP when those paths cha
 | Secret | Value |
 |--------|-------|
 | `FTP_HOST` | `ftp.universare.com` (or `15.235.87.145`) |
-| `FTP_USER` | `univers3` |
-| `FTP_PASSWORD` | your cPanel password |
+| `FTP_USER` | `univers3` — **main cPanel user**, not `esteb@universare.com` |
+| `FTP_PASSWORD` | cPanel password for `univers3` |
+
+The restricted FTP account `esteb@universare.com` only has access to `public_html/esteb/` and **cannot** deploy themes.
 
 Workflow: `.github/workflows/deploy-theme.yml`
 

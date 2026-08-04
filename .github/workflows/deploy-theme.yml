@@ -29,6 +29,7 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: wp-content/themes/universare-child/
+          # Must use main cPanel FTP user (univers3), NOT a restricted account like esteb@universare.com
           server-dir: public_html/wp-content/themes/universare-child/
           dangerous-clean-slate: false
           log-level: minimal
