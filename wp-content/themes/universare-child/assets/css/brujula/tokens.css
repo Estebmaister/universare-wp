@@ -15,7 +15,7 @@
 	--bru-white: #ffffff;
 
 	/* Semantic */
-	--bru-icon-color: #75502a;
+	--bru-icon-color: #5a3a1a;
 	--bru-mark-no-bg: #f3e4e4;
 	--bru-mark-no-fg: #b85454;
 	--bru-mark-yes-bg: #e8f0e4;
@@ -23,11 +23,11 @@
 
 	/* Icon sizes */
 	--bru-icon-sm: 56px;
-	--bru-icon-md: 88px;
-	--bru-icon-lg: 112px;
+	--bru-icon-md: 96px;
+	--bru-icon-lg: 120px;
 	--bru-icon-logo: 40px;
-	--bru-icon-wrap-min: 112px;
-	--bru-icon-vs: 26px;
+	--bru-icon-wrap-min: 120px;
+	--bru-icon-vs: 28px;
 
 	/* Typography */
 	--bru-serif: "Cormorant Garamond", Georgia, serif;

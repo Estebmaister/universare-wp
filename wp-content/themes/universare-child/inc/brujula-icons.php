@@ -19,7 +19,7 @@ function universare_brujula_icon( string $name, array $args = array() ): string 
 	$size  = isset( $args['size'] ) ? (int) $args['size'] : 96;
 	$class = 'bru-icon' . ( ! empty( $args['class'] ) ? ' ' . esc_attr( $args['class'] ) : '' );
 
-	$s = 'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+	$s = 'stroke="#5a3a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"';
 
 	$icons = array(
 		'logo' => '<circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.1"/>'
@@ -117,10 +117,8 @@ function universare_brujula_icon( string $name, array $args = array() ): string 
 	$vb = in_array( $name, array( 'logo' ), true ) ? '0 0 24 24' : '0 0 48 48';
 
 	return sprintf(
-		'<svg class="%s" width="%d" height="%d" viewBox="%s" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">%s</svg>',
+		'<svg class="%s" viewBox="%s" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">%s</svg>',
 		esc_attr( $class ),
-		$size,
-		$size,
 		esc_attr( $vb ),
 		$icons[ $name ]
 	);

@@ -3,7 +3,7 @@
  */
 
 /* ── Icons ── */
-.bru-icon {
+.bru-landing .bru-icon {
 	display: block;
 	margin-inline: auto;
 	color: var(--bru-icon-color);
@@ -11,15 +11,24 @@
 	overflow: visible;
 }
 
-.bru-icon-wrap .bru-icon,
-.bru-step__icon .bru-icon,
-.bru-logo .bru-icon {
+.bru-landing .bru-icon-wrap .bru-icon,
+.bru-landing .bru-step__icon .bru-icon {
 	color: var(--bru-icon-color);
 }
 
-.bru-icon--sm { width: var(--bru-icon-sm); height: var(--bru-icon-sm); }
-.bru-icon--md { width: var(--bru-icon-md); height: var(--bru-icon-md); }
-.bru-icon--lg { width: var(--bru-icon-lg); height: var(--bru-icon-lg); }
+.bru-landing .bru-icon--sm { width: var(--bru-icon-sm); height: var(--bru-icon-sm); }
+.bru-landing .bru-icon--md { width: var(--bru-icon-md); height: var(--bru-icon-md); }
+.bru-landing .bru-icon--lg { width: var(--bru-icon-lg); height: var(--bru-icon-lg); }
+
+.bru-landing .bru-icon-wrap .bru-icon.bru-icon--lg {
+	width: 120px;
+	height: 120px;
+}
+
+.bru-landing .bru-icon-wrap .bru-icon.bru-icon--md {
+	width: 96px;
+	height: 96px;
+}
 
 .bru-icon-wrap {
 	display: flex;
