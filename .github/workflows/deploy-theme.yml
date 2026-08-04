@@ -18,31 +18,39 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Validate FTP secrets are set
+        run: |
+          test -n "${{ secrets.FTP_HOST }}" || { echo "FTP_HOST secret is empty"; exit 1; }
+          test -n "${{ secrets.FTP_USER }}" || { echo "FTP_USER secret is empty"; exit 1; }
+          test -n "${{ secrets.FTP_PASSWORD }}" || { echo "FTP_PASSWORD secret is empty"; exit 1; }
+          echo "FTP secrets present (host user password)"
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy child theme via FTP
+      - name: Deploy child theme via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          protocol: ftp
+          protocol: ftps
+          security: loose
           local-dir: wp-content/themes/universare-child/
-          # Must use main cPanel FTP user (univers3), NOT a restricted account like esteb@universare.com
           server-dir: public_html/wp-content/themes/universare-child/
           dangerous-clean-slate: false
-          log-level: minimal
+          log-level: verbose
 
-      - name: Deploy mu-plugin via FTP
+      - name: Deploy mu-plugin via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          protocol: ftp
+          protocol: ftps
+          security: loose
           local-dir: wp-content/mu-plugins/
           server-dir: public_html/wp-content/mu-plugins/
           dangerous-clean-slate: false
