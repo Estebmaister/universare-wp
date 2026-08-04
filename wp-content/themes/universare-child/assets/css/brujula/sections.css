@@ -96,8 +96,8 @@
 
 .bru-vs__mark {
 	flex-shrink: 0;
-	width: 1.5rem;
-	height: 1.5rem;
+	width: 2rem;
+	height: 2rem;
 	border-radius: var(--bru-radius-pill);
 	display: grid;
 	place-items: center;
@@ -110,8 +110,8 @@
 
 .bru-vs__mark--no .bru-icon {
 	color: var(--bru-mark-no-fg);
-	width: 12px;
-	height: 12px;
+	width: var(--bru-icon-vs);
+	height: var(--bru-icon-vs);
 }
 
 .bru-vs__mark--yes {
@@ -121,8 +121,8 @@
 
 .bru-vs__mark--yes .bru-icon {
 	color: var(--bru-mark-yes-fg);
-	width: 14px;
-	height: 14px;
+	width: calc(var(--bru-icon-vs) + 4px);
+	height: calc(var(--bru-icon-vs) + 4px);
 }
 
 .bru-vs__center {
@@ -153,33 +153,61 @@
 /* ── Work / pillars ── */
 .bru-work {
 	display: grid;
-	gap: 2.5rem;
-	align-items: center;
+	gap: var(--bru-gap);
+	align-items: stretch;
+}
+
+.bru-work__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-width: 0;
+}
+
+.bru-work__content .bru-section__title--left {
+	margin-bottom: 1.5rem;
 }
 
 .bru-work__visual {
-	background: var(--bru-beige-deep);
 	border: var(--bru-border);
 	border-radius: var(--bru-radius-card);
-	padding: 1.5rem;
-	text-align: center;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	min-height: 280px;
+	padding: 0;
 }
 
 .bru-work__visual-inner {
-	aspect-ratio: 4 / 3;
-	background: linear-gradient(145deg, #fff 0%, var(--bru-beige) 100%);
-	border-radius: calc(var(--bru-radius-card) - 4px);
-	display: grid;
-	place-items: center;
-	font-family: var(--bru-serif);
-	font-size: 1.35rem;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: var(--bru-gold-dark);
+	position: relative;
+	flex: 1;
+	width: 100%;
+	min-height: 100%;
+}
+
+.bru-work__visual-img {
+	position: absolute;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
+}
+
+.bru-pillar {
+	padding-top: 1.75rem;
+	padding-bottom: 1.75rem;
+}
+
+.bru-pillar .bru-card__title {
+	margin-bottom: 0.65rem;
 }
 
 .bru-pillar .bru-card__text {
-	max-width: 14rem;
+	font-size: 0.82rem;
+	line-height: 1.5;
 }
 
 /* ── Quote band ── */
@@ -236,7 +264,7 @@
 .bru-step__arrow {
 	display: none;
 	position: absolute;
-	top: 2.35rem;
+	top: 3.75rem;
 	right: -0.65rem;
 	transform: translateX(50%);
 	color: var(--bru-gold-light);
@@ -253,17 +281,16 @@
 /* ── Final CTA ── */
 .bru-final-cta {
 	position: relative;
-	padding: 6rem 0;
+	padding: 6.5rem 0;
 	text-align: center;
-	color: var(--bru-white);
 	background:
 		var(--bru-cta-overlay),
 		url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
+	background-color: var(--bru-brown);
 }
 
 .bru-final-cta__inner {
 	position: relative;
-	z-index: 1;
 }
 
 .bru-final-cta h2 {
@@ -271,9 +298,29 @@
 	font-size: clamp(1.75rem, 4vw, 2.65rem);
 	font-weight: 500;
 	max-width: 38rem;
-	margin: 0 auto 1.75rem;
-	line-height: 1.22;
-	text-shadow: 0 2px 18px rgb(0 0 0 / 35%);
+	margin: 0 auto 2rem;
+	line-height: 1.28;
+	color: var(--bru-white);
+	text-shadow:
+		0 1px 3px rgb(0 0 0 / 70%),
+		0 4px 24px rgb(0 0 0 / 55%);
+}
+
+.bru-final-cta .bru-btn {
+	background: var(--bru-white);
+	border-color: var(--bru-white);
+	color: var(--bru-brown);
+	box-shadow: 0 6px 24px rgb(0 0 0 / 35%);
+	min-width: min(100%, 22rem);
+	padding: 1rem 2rem;
+	font-size: 0.74rem;
+}
+
+.bru-final-cta .bru-btn:hover {
+	background: var(--bru-beige);
+	border-color: var(--bru-beige);
+	color: var(--bru-brown);
+	box-shadow: 0 8px 28px rgb(0 0 0 / 42%);
 }
 
 @media (min-width: 768px) {
@@ -316,7 +363,14 @@
 	}
 
 	.bru-work {
-		grid-template-columns: 0.9fr 1.1fr;
+		grid-template-columns: minmax(240px, 2fr) minmax(0, 3fr);
+		gap: 2rem;
+		align-items: stretch;
+	}
+
+	.bru-work .bru-grid--4 {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: var(--bru-gap);
 	}
 
 	.bru-steps {
@@ -333,5 +387,15 @@
 @media (min-width: 992px) {
 	.bru-vs {
 		gap: 2rem 3rem;
+	}
+
+	.bru-grid--4 {
+		gap: var(--bru-gap);
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.bru-work .bru-grid--4 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }

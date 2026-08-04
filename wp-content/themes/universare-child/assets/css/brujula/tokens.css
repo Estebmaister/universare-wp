@@ -21,14 +21,26 @@
 	--bru-mark-yes-bg: #e8f0e4;
 	--bru-mark-yes-fg: #5f7d52;
 
+	/* Icon sizes (2× base) */
+	--bru-icon-sm: 56px;
+	--bru-icon-md: 80px;
+	--bru-icon-lg: 104px;
+	--bru-icon-logo: 40px;
+	--bru-icon-wrap-min: 104px;
+	--bru-icon-vs: 24px;
+
 	/* Typography */
 	--bru-serif: "Cormorant Garamond", Georgia, serif;
 	--bru-sans: "Montserrat", "Helvetica Neue", sans-serif;
 
 	/* Spacing */
 	--bru-section-y: 4.5rem;
-	--bru-gap: 1.25rem;
+	--bru-gap: 1.5rem;
 	--bru-container: min(1140px, 92vw);
+
+	/* Cards */
+	--bru-card-pad-y: 2rem;
+	--bru-card-pad-x: 1.25rem;
 
 	/* Radii */
 	--bru-radius-btn: 8px;
@@ -39,11 +51,11 @@
 	--bru-border: 1px solid rgb(184 149 107 / 22%);
 	--bru-shadow-card: 0 2px 12px rgb(74 63 54 / 6%);
 
-	/* Final CTA overlay */
+	/* Final CTA overlay — keep photo visible, darken only enough for text */
 	--bru-cta-overlay: linear-gradient(
-		105deg,
-		rgb(35 28 22 / 82%) 0%,
-		rgb(45 36 28 / 68%) 45%,
-		rgb(30 24 18 / 78%) 100%
+		180deg,
+		rgb(20 16 12 / 28%) 0%,
+		rgb(20 16 12 / 52%) 55%,
+		rgb(15 12 10 / 65%) 100%
 	);
 }

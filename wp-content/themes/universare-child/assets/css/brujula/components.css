@@ -4,22 +4,25 @@
 
 /* ── Icons ── */
 .bru-icon {
-	display: inline-block;
-	vertical-align: middle;
+	display: block;
+	margin-inline: auto;
 	color: var(--bru-icon-color);
 	flex-shrink: 0;
+	overflow: visible;
 }
 
-.bru-icon--sm { width: 28px; height: 28px; }
-.bru-icon--md { width: 40px; height: 40px; }
-.bru-icon--lg { width: 52px; height: 52px; }
+.bru-icon--sm { width: var(--bru-icon-sm); height: var(--bru-icon-sm); }
+.bru-icon--md { width: var(--bru-icon-md); height: var(--bru-icon-md); }
+.bru-icon--lg { width: var(--bru-icon-lg); height: var(--bru-icon-lg); }
 
 .bru-icon-wrap {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
+	height: var(--bru-icon-wrap-min);
 	margin-bottom: 1rem;
-	min-height: 52px;
+	flex-shrink: 0;
 }
 
 /* ── Buttons ── */
@@ -91,6 +94,8 @@
 }
 
 .bru-logo .bru-icon {
+	width: var(--bru-icon-logo);
+	height: var(--bru-icon-logo);
 	color: var(--bru-gold-dark);
 }
 
@@ -123,6 +128,7 @@
 .bru-grid {
 	display: grid;
 	gap: var(--bru-gap);
+	align-items: stretch;
 }
 
 .bru-grid--4 {
@@ -134,12 +140,13 @@
 	border: var(--bru-border);
 	border-radius: var(--bru-radius-card);
 	box-shadow: var(--bru-shadow-card);
-	padding: 2rem 1.25rem 1.75rem;
+	padding: var(--bru-card-pad-y) var(--bru-card-pad-x);
 	text-align: center;
-	min-height: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: flex-start;
 }
 
 .bru-card__text {
@@ -147,7 +154,8 @@
 	color: var(--bru-muted);
 	margin: 0;
 	line-height: 1.55;
-	max-width: 16rem;
+	width: 100%;
+	flex: 1;
 }
 
 .bru-card__title {
@@ -155,7 +163,9 @@
 	font-family: var(--bru-serif);
 	font-size: 1.05rem;
 	color: var(--bru-brown);
-	margin-bottom: 0.35rem;
+	margin: 0 0 0.5rem;
+	line-height: 1.25;
+	min-height: 1.35rem;
 }
 
 .bru-card--soft {
@@ -206,7 +216,10 @@
 @media (min-width: 768px) {
 	.bru-nav { display: flex; }
 	.bru-menu-toggle { display: none; }
-	.bru-grid--4 { grid-template-columns: repeat(4, 1fr); }
+	.bru-grid--4 {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: var(--bru-gap);
+	}
 }
 
 @media (max-width: 767px) {

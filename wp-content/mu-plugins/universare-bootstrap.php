@@ -11,18 +11,26 @@ defined( 'ABSPATH' ) || exit;
  * Create Brújula landing page at /landing once (idempotent).
  */
 function universare_ensure_brujula_landing_page(): void {
-	if ( get_option( 'universare_brujula_page_created' ) ) {
-		return;
-	}
-
 	if ( ! function_exists( 'wp_insert_post' ) ) {
 		return;
 	}
 
+	$template = 'page-templates/landing-brujula.php';
 	$existing = get_page_by_path( 'landing', OBJECT, 'page' );
+
 	if ( $existing instanceof WP_Post ) {
-		update_post_meta( $existing->ID, '_wp_page_template', 'page-templates/landing-brujula.php' );
-		update_option( 'universare_brujula_page_created', 1 );
+		$current_template = get_post_meta( $existing->ID, '_wp_page_template', true );
+		if ( $template !== $current_template ) {
+			update_post_meta( $existing->ID, '_wp_page_template', $template );
+		}
+
+		if ( ! get_option( 'universare_brujula_page_created' ) ) {
+			update_option( 'universare_brujula_page_created', 1 );
+		}
+		return;
+	}
+
+	if ( get_option( 'universare_brujula_page_created' ) ) {
 		return;
 	}
 
@@ -41,7 +49,7 @@ function universare_ensure_brujula_landing_page(): void {
 		return;
 	}
 
-	update_post_meta( $page_id, '_wp_page_template', 'page-templates/landing-brujula.php' );
+	update_post_meta( $page_id, '_wp_page_template', $template );
 	update_option( 'universare_brujula_page_created', 1 );
 }
 add_action( 'init', 'universare_ensure_brujula_landing_page', 20 );
