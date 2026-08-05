@@ -16,7 +16,6 @@ defined( 'ABSPATH' ) || exit;
  * @param array  $args Optional class and size.
  */
 function universare_brujula_icon( string $name, array $args = array() ): string {
-	$size  = isset( $args['size'] ) ? (int) $args['size'] : 96;
 	$class = 'bru-icon' . ( ! empty( $args['class'] ) ? ' ' . esc_attr( $args['class'] ) : '' );
 
 	$s = 'stroke="#5a3a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"';
