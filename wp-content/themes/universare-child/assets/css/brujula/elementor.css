@@ -1,0 +1,621 @@
+/**
+ * Elementor canvas overrides — map native widgets to Brújula design.
+ */
+
+body.bru-landing-elementor .elementor-section-wrap > .elementor-section > .elementor-container,
+body.bru-landing-elementor .elementor-inner-section > .elementor-container {
+	max-width: none;
+	padding-inline: 0;
+}
+
+body.bru-landing-elementor .elementor-widget-heading .elementor-heading-title {
+	margin: 0;
+}
+
+body.bru-landing-elementor .elementor-widget-text-editor :where(p:last-child) {
+	margin-bottom: 0;
+}
+
+/* Hero */
+body.bru-landing-elementor .bru-hero .elementor-element.bru-hero__title .elementor-heading-title {
+	font-family: var(--bru-serif);
+	font-size: clamp(2.2rem, 5vw, 3.4rem);
+	line-height: 1.12;
+	font-weight: 500;
+	color: var(--bru-brown);
+	margin-bottom: 1.25rem;
+}
+
+body.bru-landing-elementor .bru-hero .elementor-element.bru-hero__text .elementor-widget-container {
+	font-size: 0.95rem;
+	color: var(--bru-muted);
+	margin-bottom: 1.75rem;
+	max-width: 30rem;
+}
+
+/* Section titles */
+body.bru-landing-elementor .elementor-element.bru-section__title .elementor-heading-title {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.75rem, 3.5vw, 2.45rem);
+	text-align: center;
+	color: var(--bru-brown);
+	font-weight: 500;
+	line-height: 1.25;
+	margin-bottom: 2.5rem;
+}
+
+body.bru-landing-elementor .elementor-element.bru-section__title--left .elementor-heading-title {
+	text-align: left;
+	margin-bottom: 1.5rem;
+}
+
+body.bru-landing-elementor .elementor-element.bru-insight__title .elementor-heading-title {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.75rem, 3.5vw, 2.45rem);
+	text-align: center;
+	color: var(--bru-brown);
+	font-weight: 500;
+	line-height: 1.25;
+	margin-bottom: 2.5rem;
+}
+
+/* Cards */
+/* Reset theme .bru-card on Elementor column — styles live on .elementor-widget-wrap only */
+body.bru-landing-elementor .elementor-column.bru-card,
+body.bru-landing-elementor .elementor-column.bru-pillar {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+body.bru-landing-elementor .elementor-column.bru-card > .elementor-widget-wrap {
+	background: var(--bru-white);
+	border: var(--bru-border);
+	border-radius: var(--bru-radius-card);
+	box-shadow: var(--bru-shadow-card);
+	padding: var(--bru-card-pad-y) var(--bru-card-pad-x);
+	text-align: center;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+body.bru-landing-elementor .elementor-element.bru-card__text .elementor-widget-container,
+body.bru-landing-elementor .elementor-element.bru-card__text .elementor-widget-container p {
+	font-size: 0.88rem;
+	color: var(--bru-muted);
+	line-height: 1.55;
+	margin: 0;
+}
+
+body.bru-landing-elementor .elementor-element.bru-card__title .elementor-heading-title {
+	font-family: var(--bru-serif);
+	font-size: 1.05rem;
+	color: var(--bru-brown);
+	font-weight: 500;
+	margin-bottom: 0.5rem;
+}
+
+body.bru-landing-elementor .elementor-column.bru-pillar > .elementor-widget-wrap {
+	padding-top: 1.75rem;
+	padding-bottom: 1.75rem;
+	height: auto !important;
+	align-self: start;
+	justify-content: flex-start;
+}
+
+body.bru-landing-elementor .elementor-column.bru-pillar .elementor-widget {
+	width: 100%;
+	margin-bottom: 0;
+}
+
+body.bru-landing-elementor .elementor-column.bru-work__content .elementor-section.bru-grid > .elementor-container {
+	align-items: start !important;
+}
+
+body.bru-landing-elementor .elementor-column.bru-card .elementor-widget {
+	margin-bottom: 0;
+	width: 100%;
+}
+
+body.bru-landing-elementor .bru-section--cards .elementor-column.bru-card > .elementor-widget-wrap {
+	border-color: rgb(184 149 107 / 32%);
+	box-shadow: 0 4px 18px rgb(74 63 54 / 8%);
+}
+
+/* Quote band */
+body.bru-landing-elementor .bru-quote-band .elementor-element.bru-quote-band__text .elementor-widget-container {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.35rem, 3vw, 1.85rem);
+	color: var(--bru-brown);
+	max-width: 38rem;
+	margin: 0 auto 1.75rem;
+	line-height: 1.45;
+	text-align: center;
+}
+
+body.bru-landing-elementor .bru-quote-band .elementor-element.bru-quote-band__text .elementor-widget-container p {
+	margin: 0;
+}
+
+body.bru-landing-elementor .bru-quote-band .elementor-element.bru-btn {
+	text-align: center;
+}
+
+/* Final CTA */
+body.bru-landing-elementor .bru-final-cta .elementor-element.bru-final-cta__title .elementor-heading-title {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.75rem, 4vw, 2.65rem);
+	font-weight: 500;
+	max-width: 38rem;
+	margin: 0 auto 2rem;
+	line-height: 1.28;
+	color: #ffffff;
+	text-shadow:
+		0 1px 3px rgb(0 0 0 / 70%),
+		0 4px 24px rgb(0 0 0 / 55%);
+	text-align: center;
+}
+
+body.bru-landing-elementor .bru-final-cta .elementor-element.bru-btn--light {
+	text-align: center;
+}
+
+/* Buttons — reset theme .bru-btn on Elementor widget wrapper */
+body.bru-landing-elementor .elementor-element.bru-btn,
+body.bru-landing-elementor .elementor-element.bru-btn--light {
+	display: block !important;
+	width: auto !important;
+	max-width: none !important;
+	min-width: 0 !important;
+	padding: 0 !important;
+	margin: 0 auto !important;
+	border: none !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+	font-size: inherit !important;
+	font-weight: inherit !important;
+	color: inherit !important;
+}
+
+body.bru-landing-elementor .elementor-element.bru-btn .elementor-button-wrapper,
+body.bru-landing-elementor .elementor-element.bru-btn--light .elementor-button-wrapper {
+	display: inline-block;
+}
+
+body.bru-landing-elementor .elementor-element.bru-btn .elementor-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.8rem 1.5rem;
+	border: 1px solid var(--bru-gold);
+	background: var(--bru-gold);
+	color: var(--bru-white);
+	font-family: var(--bru-sans);
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	border-radius: var(--bru-radius-btn);
+	transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+body.bru-landing-elementor .elementor-element.bru-btn .elementor-button:hover {
+	background: var(--bru-gold-dark);
+	border-color: var(--bru-gold-dark);
+	color: var(--bru-white);
+}
+
+body.bru-landing-elementor .bru-final-cta .elementor-element.bru-btn--light .elementor-button {
+	background: var(--bru-white);
+	border-color: var(--bru-white);
+	color: var(--bru-brown);
+	box-shadow: 0 6px 24px rgb(0 0 0 / 35%);
+	min-width: min(100%, 22rem);
+	padding: 1rem 2rem;
+	font-size: 0.74rem;
+}
+
+body.bru-landing-elementor .bru-final-cta .elementor-element.bru-btn--light .elementor-button:hover {
+	background: var(--bru-beige);
+	border-color: var(--bru-beige);
+	color: var(--bru-brown);
+}
+
+body.bru-landing-elementor .bru-header .elementor-widget,
+body.bru-landing-elementor .bru-footer .elementor-widget,
+body.bru-landing-elementor .bru-hero .elementor-widget,
+body.bru-landing-elementor .bru-quote-band .elementor-widget,
+body.bru-landing-elementor .bru-final-cta .elementor-widget {
+	margin-bottom: 0;
+}
+
+body.bru-landing-elementor .elementor-widget-html .elementor-widget-container {
+	margin: 0;
+	padding: 0;
+}
+
+/* Inner sections must span full column width (Elementor shrink-wrap bug) */
+body.bru-landing-elementor .elementor-column > .elementor-widget-wrap {
+	width: 100%;
+}
+
+body.bru-landing-elementor .elementor-widget-wrap > .elementor-inner-section {
+	width: 100% !important;
+	max-width: 100% !important;
+	align-self: stretch;
+}
+
+/* Elementor 4 applies grid on the section — reset so our container holds the grid */
+body.bru-landing-elementor .elementor-inner-section.bru-grid,
+body.bru-landing-elementor .elementor-inner-section.bru-steps,
+body.bru-landing-elementor .elementor-inner-section.bru-work,
+body.bru-landing-elementor .elementor-inner-section.bru-pricing__layout {
+	display: block !important;
+	grid-template-columns: none !important;
+}
+
+body.bru-landing-elementor .elementor-inner-section > .elementor-container {
+	width: 100% !important;
+	max-width: none !important;
+	min-width: 0;
+}
+
+body.bru-landing-elementor .elementor-section.bru-grid > .elementor-container > .elementor-column,
+body.bru-landing-elementor .elementor-section.bru-steps > .elementor-container > .elementor-column,
+body.bru-landing-elementor .elementor-section.bru-work > .elementor-container > .elementor-column,
+body.bru-landing-elementor .elementor-section.bru-pricing__layout > .elementor-container > .elementor-column {
+	width: 100% !important;
+	min-width: 0 !important;
+	max-width: none !important;
+	flex: unset !important;
+}
+
+/* Grid layouts on inner Elementor sections */
+body.bru-landing-elementor .elementor-section.bru-grid.bru-grid--4 > .elementor-container {
+	display: grid !important;
+	gap: var(--bru-gap);
+	align-items: stretch;
+	grid-template-columns: 1fr;
+	width: 100% !important;
+	max-width: none !important;
+}
+
+body.bru-landing-elementor .elementor-section.bru-steps > .elementor-container {
+	display: grid !important;
+	gap: 2rem;
+	grid-template-columns: 1fr;
+	width: 100% !important;
+	max-width: none !important;
+}
+
+body.bru-landing-elementor .elementor-section.bru-work > .elementor-container {
+	display: grid !important;
+	gap: var(--bru-gap);
+	align-items: stretch;
+	grid-template-columns: 1fr;
+	width: 100% !important;
+	max-width: none !important;
+}
+
+@media (min-width: 768px) {
+	body.bru-landing-elementor .elementor-section.bru-grid.bru-grid--4 > .elementor-container {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	body.bru-landing-elementor .elementor-section.bru-steps > .elementor-container {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0;
+		align-items: start;
+	}
+
+	body.bru-landing-elementor .elementor-section.bru-work > .elementor-container {
+		grid-template-columns: minmax(240px, 2fr) minmax(0, 3fr);
+		gap: 2rem;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	body.bru-landing-elementor .bru-work__content .elementor-section.bru-grid.bru-grid--4 > .elementor-container {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+body.bru-landing-elementor .elementor-section.bru-section > .elementor-container,
+body.bru-landing-elementor .elementor-section.bru-header > .elementor-container,
+body.bru-landing-elementor .elementor-section.bru-footer > .elementor-container {
+	width: var(--bru-container);
+	max-width: none;
+	margin-inline: auto;
+}
+
+body.bru-landing-elementor .elementor-section.bru-section {
+	padding-block: var(--bru-section-y);
+}
+
+body.bru-landing-elementor .elementor-section.bru-section--beige {
+	background: var(--bru-beige);
+}
+
+body.bru-landing-elementor .elementor-section.bru-hero {
+	position: relative;
+	min-height: 78vh;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	background:
+		linear-gradient(90deg, var(--bru-cream) 40%, rgb(250 246 240 / 15%) 100%),
+		url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
+}
+
+body.bru-landing-elementor .elementor-section.bru-final-cta {
+	position: relative;
+	padding: 6.5rem 0;
+	text-align: center;
+	background:
+		var(--bru-cta-overlay),
+		url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
+	background-color: var(--bru-brown);
+}
+
+body.bru-landing-elementor .elementor-section.bru-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: rgb(250 246 240 / 96%);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgb(184 149 107 / 14%);
+}
+
+body.bru-landing-elementor .elementor-section.bru-header .elementor-widget-html,
+body.bru-landing-elementor .elementor-section.bru-header .elementor-widget-html .elementor-widget-container,
+body.bru-landing-elementor .elementor-section.bru-header .bru-header__inner {
+	width: 100%;
+	max-width: none;
+	margin-inline: auto;
+}
+
+body.bru-landing-elementor .elementor-section.bru-header .bru-header__inner {
+	padding-inline: 0;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	body.bru-landing-elementor .bru-header__inner {
+		gap: 0.75rem;
+	}
+
+	body.bru-landing-elementor .bru-header__inner .bru-nav {
+		gap: 1rem;
+		font-size: 0.68rem;
+	}
+
+	body.bru-landing-elementor .bru-header__inner .bru-btn {
+		flex-shrink: 0;
+		white-space: nowrap;
+		padding: 0.65rem 1rem;
+		font-size: 0.68rem;
+	}
+}
+
+body.bru-landing-elementor .elementor-section.bru-footer {
+	background: var(--bru-white);
+	border-top: 1px solid rgb(184 149 107 / 14%);
+	padding: 1.5rem 0;
+}
+
+body.bru-landing-elementor .elementor-column.bru-container > .elementor-widget-wrap,
+body.bru-landing-elementor .elementor-column.bru-container {
+	max-width: var(--bru-container);
+	margin-inline: auto;
+	width: 100%;
+}
+
+body.bru-landing-elementor .elementor-element.bru-step__label .elementor-widget-container,
+body.bru-landing-elementor .elementor-element.bru-step__label .elementor-widget-container p {
+	font-size: 0.82rem;
+	color: var(--bru-muted);
+	margin: 0 auto;
+	max-width: 9rem;
+	line-height: 1.45;
+	text-align: center;
+}
+
+body.bru-landing-elementor .elementor-column.bru-step-col > .elementor-widget-wrap {
+	text-align: center;
+	position: relative;
+}
+
+/* Steps — constrain icon size (SVG was filling column width) */
+body.bru-landing-elementor .bru-step__icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+body.bru-landing-elementor .bru-step__icon .bru-icon,
+body.bru-landing-elementor .bru-step__icon svg {
+	width: 96px !important;
+	height: 96px !important;
+	max-width: 96px !important;
+	flex-shrink: 0;
+}
+
+body.bru-landing-elementor .bru-step__arrow .bru-icon,
+body.bru-landing-elementor .bru-step__arrow svg {
+	width: 48px !important;
+	height: 48px !important;
+	max-width: 48px !important;
+}
+
+body.bru-landing-elementor .bru-step__num {
+	width: 2.25rem;
+	height: 2.25rem;
+	margin: 0 auto 0.65rem;
+	border-radius: var(--bru-radius-pill);
+	background: var(--bru-gold);
+	color: var(--bru-white);
+	display: grid;
+	place-items: center;
+	font-weight: 600;
+	font-size: 0.85rem;
+}
+
+/* Work visual in Elementor */
+body.bru-landing-elementor .bru-work__visual {
+	position: relative;
+	border: var(--bru-border);
+	border-radius: var(--bru-radius-card);
+	overflow: hidden;
+	min-height: 280px;
+	aspect-ratio: 1 / 1;
+	padding: 0;
+	height: 100%;
+}
+
+body.bru-landing-elementor .bru-work__visual-inner {
+	position: absolute;
+	inset: 0;
+	background-position: 42% 18%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+	body.bru-landing-elementor .bru-work__visual {
+		aspect-ratio: auto;
+		height: 100%;
+	}
+
+	body.bru-landing-elementor .bru-work__visual-inner {
+		background-position: 38% 10%;
+	}
+}
+
+/* Button widgets — no white widget chrome on dark/quote sections */
+body.bru-landing-elementor .bru-final-cta .elementor-widget-button,
+body.bru-landing-elementor .bru-quote-band .elementor-widget-button {
+	background: transparent !important;
+}
+
+body.bru-landing-elementor .bru-final-cta .elementor-element.bru-btn--light .elementor-widget-container,
+body.bru-landing-elementor .bru-quote-band .elementor-element.bru-btn .elementor-widget-container {
+	background: transparent;
+	padding: 0;
+}
+
+body.bru-landing-elementor .elementor-column.bru-hero__content > .elementor-widget-wrap {
+	max-width: 34rem;
+	padding: 4rem 0;
+}
+
+body.bru-landing-elementor .elementor-column.bru-work__content > .elementor-widget-wrap,
+body.bru-landing-elementor .elementor-column.bru-work__visual-col {
+	min-width: 0;
+}
+
+body.bru-landing-elementor .elementor-column.bru-work__content .elementor-section.bru-grid > .elementor-container {
+	margin-top: 0;
+}
+
+/* Pricing */
+body.bru-landing-elementor .elementor-inner-section.bru-pricing__layout {
+	display: block !important;
+}
+
+body.bru-landing-elementor .elementor-section.bru-pricing__layout > .elementor-container {
+	display: grid !important;
+	gap: 2.5rem;
+	align-items: center;
+	grid-template-columns: 1fr;
+	width: 100% !important;
+	max-width: none !important;
+}
+
+@media (min-width: 768px) {
+	body.bru-landing-elementor .elementor-section.bru-pricing__layout > .elementor-container {
+		grid-template-columns: minmax(0, 1.2fr) minmax(280px, 380px);
+		gap: 3rem;
+	}
+}
+
+body.bru-landing-elementor .elementor-column.bru-pricing__includes > .elementor-widget-wrap,
+body.bru-landing-elementor .elementor-column.bru-pricing__card-col > .elementor-widget-wrap {
+	min-width: 0;
+}
+
+body.bru-landing-elementor .elementor-column.bru-pricing__card-col > .elementor-widget-wrap {
+	background: var(--bru-beige);
+	border: var(--bru-border);
+	border-radius: var(--bru-radius-card);
+	box-shadow: var(--bru-shadow-card);
+	padding: 2.25rem 2rem;
+	text-align: center;
+	align-items: center;
+}
+
+body.bru-landing-elementor .elementor-element.bru-pricing__title .elementor-heading-title {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.75rem, 3.5vw, 2.45rem);
+	color: var(--bru-brown);
+	font-weight: 500;
+	line-height: 1.25;
+	margin: 0 0 1.75rem;
+	text-align: left;
+}
+
+body.bru-landing-elementor .elementor-element.bru-pricing__label .elementor-heading-title {
+	margin: 0 0 0.75rem;
+	font-family: var(--bru-sans);
+	font-size: 0.68rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--bru-gold-dark);
+}
+
+body.bru-landing-elementor .elementor-element.bru-pricing__amount .elementor-heading-title {
+	margin: 0 0 1.5rem;
+	font-family: var(--bru-serif);
+	font-size: clamp(2rem, 4.5vw, 2.75rem);
+	font-weight: 600;
+	line-height: 1.1;
+	color: var(--bru-brown);
+}
+
+body.bru-landing-elementor .elementor-element.bru-pricing__cta {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+body.bru-landing-elementor .elementor-element.bru-pricing__cta .elementor-button {
+	width: 100%;
+	justify-content: center;
+}
+
+body.bru-landing-elementor .elementor-element.bru-pricing__secure .elementor-widget-container,
+body.bru-landing-elementor .elementor-element.bru-pricing__secure .bru-pricing__secure {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+	margin: 0;
+	font-size: 0.72rem;
+	color: var(--bru-muted);
+}
+
+body.bru-landing-elementor .elementor-element.bru-pricing__secure .bru-pricing__secure .bru-icon,
+body.bru-landing-elementor .elementor-element.bru-pricing__secure .bru-pricing__secure svg {
+	display: block;
+	flex-shrink: 0;
+	margin: 0;
+	width: 16px !important;
+	height: 16px !important;
+	color: var(--bru-gold-dark);
+}

@@ -2,7 +2,8 @@
  * Brújula base & layout
  */
 
-.bru-landing {
+.bru-landing,
+body.bru-landing-elementor {
 	font-family: var(--bru-sans);
 	color: var(--bru-text);
 	background: var(--bru-cream);
@@ -11,7 +12,10 @@
 
 .bru-landing *,
 .bru-landing *::before,
-.bru-landing *::after {
+.bru-landing *::after,
+body.bru-landing-elementor .bru-landing *,
+body.bru-landing-elementor .bru-landing *::before,
+body.bru-landing-elementor .bru-landing *::after {
 	box-sizing: border-box;
 }
 
@@ -67,12 +71,28 @@
 /* Hide Astra chrome */
 body.page-template-page-templates-landing-brujula-php .site-header,
 body.page-template-page-templates-landing-brujula-php .site-footer,
-body.page-template-page-templates-landing-brujula-php #ast-scroll-top {
+body.page-template-page-templates-landing-brujula-php #ast-scroll-top,
+body.bru-landing-elementor .site-header,
+body.bru-landing-elementor .site-footer,
+body.bru-landing-elementor #ast-scroll-top {
 	display: none !important;
 }
 
-body.page-template-page-templates-landing-brujula-php #page {
+body.page-template-page-templates-landing-brujula-php #page,
+body.bru-landing-elementor #page {
 	margin: 0;
+}
+
+/* Elementor canvas: remove default section padding/gaps */
+body.bru-landing-elementor .elementor-section-wrap > .elementor-section,
+body.bru-landing-elementor .elementor-section-wrap > .elementor-section > .elementor-container {
+	max-width: none;
+	padding: 0;
+}
+
+body.bru-landing-elementor .elementor-widget-html .elementor-widget-container {
+	margin: 0;
+	padding: 0;
 }
 
 @media (max-width: 767px) {

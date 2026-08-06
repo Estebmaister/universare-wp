@@ -1,7 +1,8 @@
 /**
  * Brújula design tokens — edit here to retheme the landing.
  */
-.bru-landing {
+.bru-landing,
+body.bru-landing-elementor {
 	/* Colors */
 	--bru-cream: #faf6f0;
 	--bru-beige: #ebe3d6;

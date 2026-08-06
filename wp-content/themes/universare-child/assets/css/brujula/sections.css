@@ -268,6 +268,108 @@
 	box-shadow: 0 4px 18px rgb(74 63 54 / 8%);
 }
 
+/* ── Pricing / investment ── */
+.bru-pricing__layout {
+	display: grid;
+	gap: 2.5rem;
+	align-items: center;
+}
+
+.bru-pricing__title {
+	font-family: var(--bru-serif);
+	font-size: clamp(1.75rem, 3.5vw, 2.45rem);
+	color: var(--bru-brown);
+	font-weight: 500;
+	line-height: 1.25;
+	margin: 0 0 1.75rem;
+}
+
+.bru-pricing__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.85rem;
+}
+
+.bru-pricing__list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	font-size: 0.92rem;
+	color: var(--bru-text);
+	line-height: 1.45;
+}
+
+.bru-pricing__check {
+	display: inline-flex;
+	flex-shrink: 0;
+	margin-top: 0.1rem;
+	color: var(--bru-gold-dark);
+}
+
+.bru-pricing__check .bru-icon,
+.bru-pricing__check svg {
+	width: 20px !important;
+	height: 20px !important;
+}
+
+.bru-pricing__card {
+	background: var(--bru-beige);
+	border: var(--bru-border);
+	border-radius: var(--bru-radius-card);
+	box-shadow: var(--bru-shadow-card);
+	padding: 2.25rem 2rem;
+	text-align: center;
+}
+
+.bru-pricing__label {
+	margin: 0 0 0.75rem;
+	font-family: var(--bru-sans);
+	font-size: 0.68rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--bru-gold-dark);
+}
+
+.bru-pricing__amount {
+	margin: 0 0 1.5rem;
+	font-family: var(--bru-serif);
+	font-size: clamp(2rem, 4.5vw, 2.75rem);
+	font-weight: 600;
+	line-height: 1.1;
+	color: var(--bru-brown);
+}
+
+.bru-pricing__cta {
+	width: 100%;
+	max-width: 100%;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+
+.bru-pricing__secure {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+	margin: 0;
+	font-size: 0.72rem;
+	color: var(--bru-muted);
+}
+
+.bru-pricing__secure .bru-icon,
+.bru-pricing__secure svg {
+	display: block;
+	flex-shrink: 0;
+	align-self: center;
+	margin: 0;
+	width: 16px !important;
+	height: 16px !important;
+	color: var(--bru-gold-dark);
+}
+
 /* ── Final CTA ── */
 .bru-final-cta {
 	position: relative;
@@ -380,6 +482,11 @@
 
 	.bru-step:not(:last-child) .bru-step__arrow {
 		display: block;
+	}
+
+	.bru-pricing__layout {
+		grid-template-columns: minmax(0, 1.2fr) minmax(280px, 380px);
+		gap: 3rem;
 	}
 }
 

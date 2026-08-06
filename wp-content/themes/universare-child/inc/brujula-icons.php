@@ -104,6 +104,9 @@ function universare_brujula_icon( string $name, array $args = array() ): string 
 			. '<path d="M15 22v-4h4" fill="none" ' . $s . '/>'
 			. '<path d="M33 22v-4h-4" fill="none" ' . $s . '/>',
 
+		'lock' => '<rect x="5" y="11" width="14" height="10" rx="1.5" fill="none" ' . $s . '/>'
+			. '<path d="M8 11V8a4 4 0 018 0v3" fill="none" ' . $s . '/>',
+
 		'check' => '<path d="M13 24l7 7 15-16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
 		'cross' => '<path d="M15 15l18 18M33 15L15 33" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>',
 		'arrow' => '<path d="M11 24h22M29 18l5 6-5 6" fill="none" ' . $s . '/>',
@@ -113,7 +116,7 @@ function universare_brujula_icon( string $name, array $args = array() ): string 
 		return '';
 	}
 
-	$vb = in_array( $name, array( 'logo' ), true ) ? '0 0 24 24' : '0 0 48 48';
+	$vb = in_array( $name, array( 'logo', 'lock' ), true ) ? '0 0 24 24' : '0 0 48 48';
 
 	return sprintf(
 		'<svg class="%s" viewBox="%s" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">%s</svg>',
