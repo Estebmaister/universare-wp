@@ -61,26 +61,29 @@ add_action( 'init', 'universare_ensure_brujula_landing_page', 20 );
  * Create Brújula Elementor landing at /landing-brujula once (idempotent).
  */
 function universare_ensure_brujula_elementor_landing_page(): void {
-	if ( ! function_exists( 'wp_insert_post' ) || ! function_exists( 'universare_brujula_sync_elementor_page' ) ) {
+	if ( ! function_exists( 'wp_insert_post' ) ) {
 		return;
 	}
 
-	$existing = get_page_by_path( 'landing-brujula', OBJECT, 'page' );
+	$existing  = get_page_by_path( 'landing-brujula', OBJECT, 'page' );
 	$theme_ver = wp_get_theme()->get( 'Version' );
 	$kit_ver   = get_option( 'universare_brujula_elementor_kit_version', '' );
 
 	if ( $existing instanceof WP_Post ) {
-		if ( $kit_ver !== $theme_ver || ! get_post_meta( $existing->ID, '_elementor_data', true ) ) {
-			universare_brujula_sync_elementor_page( (int) $existing->ID, $kit_ver !== $theme_ver );
+		if ( function_exists( 'universare_brujula_sync_elementor_page' ) ) {
+			if ( $kit_ver !== $theme_ver || ! get_post_meta( $existing->ID, '_elementor_data', true ) ) {
+				universare_brujula_sync_elementor_page( (int) $existing->ID, $kit_ver !== $theme_ver );
+			}
 		}
 
-		if ( ! get_option( 'universare_brujula_elementor_page_created' ) ) {
-			update_option( 'universare_brujula_elementor_page_created', 1 );
-		}
+		update_option( 'universare_brujula_elementor_page_created', 1 );
 		return;
 	}
 
-	if ( get_option( 'universare_brujula_elementor_page_created' ) ) {
+	// Page missing — recreate even if a previous run set the option (e.g. deploy lag or manual delete).
+	delete_option( 'universare_brujula_elementor_page_created' );
+
+	if ( ! function_exists( 'universare_brujula_sync_elementor_page' ) ) {
 		return;
 	}
 
