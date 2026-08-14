@@ -131,8 +131,10 @@ function universare_brujula_icon( string $name, array $args = array() ): string 
  */
 function universare_brujula_compass_hero(): string {
 	$uri = get_stylesheet_directory_uri() . '/assets/images/compass-labyrinth.svg';
+	$ver = wp_get_theme()->get( 'Version' );
 	return sprintf(
-		'<img class="bru-compass-hero" src="%s" alt="" width="320" height="320" loading="lazy" decoding="async">',
-		esc_url( $uri )
+		'<img class="bru-compass-hero" src="%s?ver=%s" alt="" width="320" height="320" loading="lazy" decoding="async">',
+		esc_url( $uri ),
+		esc_attr( $ver )
 	);
 }
