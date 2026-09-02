@@ -3,13 +3,14 @@
 
 	var data = window.universareReflexiones || {};
 	var quotes = Array.isArray(data.quotes) ? data.quotes : [];
-	var currentIndex = typeof data.initialIndex === 'number' ? data.initialIndex : 0;
+	var instagramUrl = typeof data.instagramUrl === 'string' ? data.instagramUrl : 'https://www.instagram.com/universare/';
+	var currentIndex = -1;
 
 	var quoteEl = document.getElementById('reflexiones-quote');
 	var attributionEl = document.getElementById('reflexiones-attribution');
 	var newBtn = document.getElementById('reflexiones-new');
 	var whatsappLink = document.getElementById('reflexiones-whatsapp');
-	var twitterLink = document.getElementById('reflexiones-twitter');
+	var instagramLink = document.getElementById('reflexiones-instagram');
 
 	if (!quoteEl || !attributionEl || quotes.length === 0) {
 		return;
@@ -37,7 +38,7 @@
 		var index;
 		do {
 			index = Math.floor(Math.random() * quotes.length);
-		} while (index === avoid);
+		} while (typeof avoid === 'number' && index === avoid);
 
 		return index;
 	}
@@ -57,10 +58,8 @@
 				'https://wa.me/?text=' + encodeURIComponent(formatShareText(quote));
 		}
 
-		if (twitterLink) {
-			twitterLink.href =
-				'https://twitter.com/intent/tweet?text=' +
-				encodeURIComponent(formatShareText(quote) + ' @universare #Universare');
+		if (instagramLink) {
+			instagramLink.href = instagramUrl;
 		}
 	}
 
@@ -70,5 +69,5 @@
 		});
 	}
 
-	render(currentIndex);
+	render(randomIndex());
 })();

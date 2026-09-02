@@ -181,6 +181,34 @@ body.reflexiones-body #page {
 	color: var(--bru-brown);
 }
 
+.reflexiones__btn-icon {
+	flex-shrink: 0;
+}
+
+.reflexiones__btn--instagram {
+	background: linear-gradient(
+		45deg,
+		#f09433 0%,
+		#e6683c 25%,
+		#dc2743 50%,
+		#cc2366 75%,
+		#bc1888 100%
+	);
+	border-color: transparent;
+	color: #fff;
+	text-transform: none;
+	letter-spacing: 0.01em;
+	font-size: 0.82rem;
+	font-weight: 600;
+	box-shadow: 0 2px 8px rgb(188 24 136 / 28%);
+}
+
+.reflexiones__btn--instagram:hover {
+	color: #fff;
+	filter: brightness(1.06);
+	box-shadow: 0 4px 12px rgb(188 24 136 / 34%);
+}
+
 @media (max-width: 600px) {
 	.reflexiones__card {
 		padding: 2rem 1.25rem;

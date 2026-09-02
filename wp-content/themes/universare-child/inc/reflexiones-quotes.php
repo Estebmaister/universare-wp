@@ -159,12 +159,8 @@ function universare_reflexiones_whatsapp_url( array $quote ): string {
 }
 
 /**
- * X/Twitter share URL for a quote.
- *
- * @param array{phrase: string, book: string, author: string} $quote Quote.
+ * Instagram profile URL for Reflexiones footer actions.
  */
-function universare_reflexiones_twitter_url( array $quote ): string {
-	$text = universare_reflexiones_share_text( $quote ) . ' @universare #Universare';
-
-	return 'https://twitter.com/intent/tweet?text=' . rawurlencode( $text );
+function universare_reflexiones_instagram_url(): string {
+	return (string) apply_filters( 'universare_brujula_instagram_url', 'https://www.instagram.com/universare/' );
 }

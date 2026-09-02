@@ -10,13 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$quotes = universare_reflexiones_get_quotes();
-$index  = universare_reflexiones_random_index( $quotes );
-$quote  = $quotes[ $index ] ?? array(
-	'phrase' => __( 'No hay reflexiones disponibles por el momento.', 'universare-child' ),
-	'book'   => '',
-	'author' => '',
-);
+$instagram_url = universare_reflexiones_instagram_url();
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -47,16 +41,9 @@ $quote  = $quotes[ $index ] ?? array(
 			<p class="reflexiones__subtitle"><?php esc_html_e( 'Universare', 'universare-child' ); ?></p>
 
 			<div class="reflexiones__quote-wrap">
-				<p class="reflexiones__quote" id="reflexiones-quote"><?php echo esc_html( $quote['phrase'] ); ?></p>
+				<p class="reflexiones__quote" id="reflexiones-quote"></p>
 			</div>
-			<p class="reflexiones__attribution" id="reflexiones-attribution">
-				<?php
-				$attribution = universare_reflexiones_format_attribution( $quote );
-				if ( '' !== $attribution ) {
-					echo esc_html( $attribution );
-				}
-				?>
-			</p>
+			<p class="reflexiones__attribution" id="reflexiones-attribution"></p>
 
 			<div class="reflexiones__actions">
 				<button type="button" class="reflexiones__btn reflexiones__btn--primary" id="reflexiones-new">
@@ -65,20 +52,25 @@ $quote  = $quotes[ $index ] ?? array(
 				<a
 					class="reflexiones__btn reflexiones__btn--outline"
 					id="reflexiones-whatsapp"
-					href="<?php echo esc_url( universare_reflexiones_whatsapp_url( $quote ) ); ?>"
+					href="#"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					<?php esc_html_e( 'Compartir en WhatsApp', 'universare-child' ); ?>
 				</a>
 				<a
-					class="reflexiones__btn reflexiones__btn--outline"
-					id="reflexiones-twitter"
-					href="<?php echo esc_url( universare_reflexiones_twitter_url( $quote ) ); ?>"
+					class="reflexiones__btn reflexiones__btn--instagram"
+					id="reflexiones-instagram"
+					href="<?php echo esc_url( $instagram_url ); ?>"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<?php esc_html_e( 'Compartir en X', 'universare-child' ); ?>
+					<svg class="reflexiones__btn-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+						<circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+						<circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" stroke="none"/>
+					</svg>
+					<?php esc_html_e( 'Compartir en Instagram', 'universare-child' ); ?>
 				</a>
 			</div>
 		</div>

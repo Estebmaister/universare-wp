@@ -192,14 +192,13 @@ function universare_child_enqueue_reflexiones(): void {
 	);
 
 	$quotes = universare_reflexiones_get_quotes();
-	$index  = universare_reflexiones_random_index( $quotes );
 
 	wp_localize_script(
 		'universare-reflexiones-quoter',
 		'universareReflexiones',
 		array(
-			'quotes'       => $quotes,
-			'initialIndex' => $index,
+			'quotes'        => $quotes,
+			'instagramUrl'  => universare_reflexiones_instagram_url(),
 		)
 	);
 }
