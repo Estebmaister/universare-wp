@@ -185,6 +185,31 @@ body.reflexiones-body #page {
 	flex-shrink: 0;
 }
 
+.reflexiones__btn--whatsapp,
+.reflexiones__btn--instagram {
+	position: relative;
+	width: 2.75rem;
+	height: 2.75rem;
+	padding: 0;
+	flex-shrink: 0;
+	border-color: transparent;
+	border-radius: 0.65rem;
+	color: #fff;
+	transition: filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reflexiones__btn--whatsapp {
+	background: #25d366;
+	box-shadow: 0 2px 8px rgb(37 211 102 / 28%);
+}
+
+.reflexiones__btn--whatsapp:hover,
+.reflexiones__btn--whatsapp:focus-visible {
+	color: #fff;
+	filter: brightness(1.06);
+	box-shadow: 0 4px 12px rgb(37 211 102 / 34%);
+}
+
 .reflexiones__btn--instagram {
 	background: linear-gradient(
 		45deg,
@@ -194,19 +219,62 @@ body.reflexiones-body #page {
 		#cc2366 75%,
 		#bc1888 100%
 	);
-	border-color: transparent;
-	color: #fff;
-	text-transform: none;
-	letter-spacing: 0.01em;
-	font-size: 0.82rem;
-	font-weight: 600;
 	box-shadow: 0 2px 8px rgb(188 24 136 / 28%);
 }
 
-.reflexiones__btn--instagram:hover {
+.reflexiones__btn--whatsapp .reflexiones__btn-tooltip,
+.reflexiones__btn--instagram .reflexiones__btn-tooltip {
+	position: absolute;
+	bottom: calc(100% + 0.55rem);
+	left: 50%;
+	z-index: 2;
+	padding: 0.4rem 0.65rem;
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	line-height: 1.3;
+	text-transform: none;
+	white-space: nowrap;
+	color: var(--bru-brown);
+	background: var(--bru-white);
+	border: 1px solid rgb(184 149 107 / 22%);
+	border-radius: 6px;
+	box-shadow: 0 4px 14px rgb(74 64 56 / 12%);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transform: translateX(-50%) translateY(4px);
+	transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.reflexiones__btn--whatsapp .reflexiones__btn-tooltip::after,
+.reflexiones__btn--instagram .reflexiones__btn-tooltip::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	width: 8px;
+	height: 8px;
+	background: var(--bru-white);
+	border-right: 1px solid rgb(184 149 107 / 22%);
+	border-bottom: 1px solid rgb(184 149 107 / 22%);
+	transform: translateX(-50%) translateY(-4px) rotate(45deg);
+}
+
+.reflexiones__btn--instagram:hover,
+.reflexiones__btn--instagram:focus-visible {
 	color: #fff;
 	filter: brightness(1.06);
 	box-shadow: 0 4px 12px rgb(188 24 136 / 34%);
+}
+
+.reflexiones__btn--whatsapp:hover .reflexiones__btn-tooltip,
+.reflexiones__btn--whatsapp:focus-visible .reflexiones__btn-tooltip,
+.reflexiones__btn--instagram:hover .reflexiones__btn-tooltip,
+.reflexiones__btn--instagram:focus-visible .reflexiones__btn-tooltip {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(-50%) translateY(0);
 }
 
 @media (max-width: 600px) {
@@ -221,5 +289,11 @@ body.reflexiones-body #page {
 
 	.reflexiones__btn {
 		width: 100%;
+	}
+
+	.reflexiones__btn--whatsapp,
+	.reflexiones__btn--instagram {
+		width: 2.75rem;
+		align-self: center;
 	}
 }
