@@ -47,27 +47,92 @@ After deploy: purge **LiteSpeed Cache** on live if styles don't update.
 
 ## Local development (WordPress Studio)
 
-Studio site on this machine:
+WordPress runs in [WordPress Studio](https://developer.wordpress.com/docs/developer-tools/studio/) — not from this repo directly. You edit theme/mu-plugin files here; Studio serves them via symlinks.
 
-```text
-Path: ~/Studio/universare-com-20260803/
-URL:  http://universare.wp.local
+### Paths
+
+| What | Path |
+|------|------|
+| **This repo** | `~/dev/maister/universare-wp` |
+| **Studio site** | `~/Studio/universare-com-20260803/` |
+| **Local URL** | http://universare.wp.local |
+
+### One-time setup (symlinks)
+
+If the site is new or the repo moved, point Studio at this repo:
+
+```bash
+STUDIO=~/Studio/universare-com-20260803
+REPO=~/dev/maister/universare-wp
+
+ln -sfn "$REPO/wp-content/themes/universare-child" \
+  "$STUDIO/wp-content/themes/universare-child"
+
+ln -sfn "$REPO/wp-content/mu-plugins/universare-bootstrap.php" \
+  "$STUDIO/wp-content/mu-plugins/universare-bootstrap.php"
+
+# Local-only (not in Git): auto-activates child theme
+ln -sfn "$REPO/wp-content/mu-plugins/universare-local-dev.php" \
+  "$STUDIO/wp-content/mu-plugins/universare-local-dev.php"
 ```
 
-Theme is symlinked from this repo (edit in `~/Projects/universare-wp`, changes appear in Studio):
+Parent theme is **Astra**. Child theme should auto-activate locally via `universare-local-dev.php`.
 
-```text
-~/Studio/universare-com-20260803/wp-content/themes/universare-child
-  -> ~/Projects/universare-wp/wp-content/themes/universare-child
+### Start local site (step by step)
+
+```bash
+# 1. Add Studio CLI to PATH (add to ~/.bashrc or ~/.zshrc to persist)
+export PATH="$HOME/.studio/bin:$PATH"
+
+# 2. Check if the site is running
+studio status -p ~/Studio/universare-com-20260803
+
+# 3. Start WordPress (skip browser if you only need the URL)
+studio start -p ~/Studio/universare-com-20260803 --skip-browser
+
+# 4. Open pages in the browser
+open http://universare.wp.local/landing/
+open http://universare.wp.local/landing-brujula/
+open http://universare.wp.local/reflexiones/
 ```
+
+**WP Admin:** `studio open -p ~/Studio/universare-com-20260803` (or open http://universare.wp.local/wp-admin/). Login credentials are shown when you run `studio start`.
+
+**WP-CLI** (from the Studio site directory):
+
+```bash
+cd ~/Studio/universare-com-20260803
+studio wp plugin list
+studio wp eval 'echo count(universare_reflexiones_get_quotes());'
+```
+
+### Stop local site (save resources)
+
+When you are done developing, stop Studio so PHP and the proxy do not keep running:
 
 ```bash
 export PATH="$HOME/.studio/bin:$PATH"
-studio list    # confirm site path
-studio start   # if stopped
+
+# Stop this site only
+studio stop -p ~/Studio/universare-com-20260803
+
+# Or stop every Studio site on this machine
+studio stop --all
 ```
 
-Activate **Universare Child** in WP Admin. Parent theme is **Astra** (already on live and local).
+Confirm it is off: `studio status -p ~/Studio/universare-com-20260803` should show the site as stopped.
+
+### Quick reference
+
+| Action | Command |
+|--------|---------|
+| List sites | `studio list` |
+| Start | `studio start -p ~/Studio/universare-com-20260803` |
+| Stop | `studio stop -p ~/Studio/universare-com-20260803` |
+| Status | `studio status -p ~/Studio/universare-com-20260803` |
+| WP-CLI | `cd ~/Studio/universare-com-20260803 && studio wp …` |
+
+Edits under `wp-content/themes/universare-child/` in this repo appear immediately in the browser (hard-refresh if CSS looks cached).
 
 ## First-time live setup
 

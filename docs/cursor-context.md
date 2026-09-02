@@ -153,13 +153,27 @@ Use Playwright against `http://universare.wp.local/landing/` for section screens
 - Repo moved to `~/dev/maister/universare-wp`; Studio symlinks updated
 - Deploy commit `b33f82b` — icons, layout, compass artwork live on production
 
+## Local dev — start / stop (agents)
+
+```bash
+export PATH="$HOME/.studio/bin:$PATH"
+SITE=~/Studio/universare-com-20260803
+
+studio status -p "$SITE"                    # offline?
+studio start -p "$SITE" --skip-browser      # start
+open http://universare.wp.local/reflexiones/
+studio stop -p "$SITE"                      # stop when done (or studio stop --all)
+```
+
+**URLs:** `/landing/`, `/landing-brujula/`, `/reflexiones/` — base http://universare.wp.local
+
+**WP-CLI:** `cd "$SITE" && studio wp …`
+
+Full step-by-step (symlinks, admin, troubleshooting): `README.md` → Local development.
+
 ## Commands cheat sheet
 
 ```bash
-# Local
-studio list && studio start
-open http://universare.wp.local/landing/
-
 # Deploy
 git push origin main
 gh run list --workflow deploy-theme.yml

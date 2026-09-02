@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 require_once get_stylesheet_directory() . '/inc/brujula-icons.php';
 require_once get_stylesheet_directory() . '/inc/brujula-landing-markup.php';
 require_once get_stylesheet_directory() . '/inc/brujula-elementor.php';
+require_once get_stylesheet_directory() . '/inc/reflexiones-quotes.php';
 
 /**
  * Enqueue parent and child theme styles.
@@ -156,3 +157,64 @@ function universare_brujula_default_cta_url( string $url ): string {
 	return $url;
 }
 add_filter( 'universare_brujula_cta_url', 'universare_brujula_default_cta_url' );
+
+/**
+ * Reflexiones quoter page assets.
+ */
+function universare_child_is_reflexiones_page(): bool {
+	return is_page_template( 'page-templates/reflexiones.php' );
+}
+
+function universare_child_enqueue_reflexiones(): void {
+	if ( ! universare_child_is_reflexiones_page() ) {
+		return;
+	}
+
+	$ver  = wp_get_theme()->get( 'Version' );
+	$base = get_stylesheet_directory_uri() . '/assets/css/reflexiones/';
+
+	wp_enqueue_style(
+		'universare-reflexiones-fonts',
+		'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap',
+		array(),
+		null
+	);
+
+	wp_enqueue_style( 'universare-reflexiones-tokens', $base . 'tokens.css', array( 'universare-reflexiones-fonts' ), $ver );
+	wp_enqueue_style( 'universare-reflexiones-quoter', $base . 'quoter.css', array( 'universare-reflexiones-tokens' ), $ver );
+
+	wp_enqueue_script(
+		'universare-reflexiones-quoter',
+		get_stylesheet_directory_uri() . '/assets/js/reflexiones-quoter.js',
+		array(),
+		$ver,
+		true
+	);
+
+	$quotes = universare_reflexiones_get_quotes();
+	$index  = universare_reflexiones_random_index( $quotes );
+
+	wp_localize_script(
+		'universare-reflexiones-quoter',
+		'universareReflexiones',
+		array(
+			'quotes'       => $quotes,
+			'initialIndex' => $index,
+		)
+	);
+}
+add_action( 'wp_enqueue_scripts', 'universare_child_enqueue_reflexiones', 30 );
+
+/**
+ * Body class on Reflexiones page.
+ *
+ * @param array $classes Body classes.
+ */
+function universare_child_reflexiones_body_class( array $classes ): array {
+	if ( universare_child_is_reflexiones_page() ) {
+		$classes[] = 'reflexiones-body';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'universare_child_reflexiones_body_class' );

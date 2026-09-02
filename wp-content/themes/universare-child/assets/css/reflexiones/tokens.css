@@ -1,0 +1,29 @@
+/**
+ * Reflexiones — Brújula design tokens (scoped to .reflexiones).
+ */
+.reflexiones {
+	--bru-cream: #faf6f0;
+	--bru-beige: #ebe3d6;
+	--bru-beige-deep: #e0d5c4;
+	--bru-gold: #b8956b;
+	--bru-gold-dark: #9a7348;
+	--bru-gold-light: #c9b08a;
+	--bru-brown: #4a3f36;
+	--bru-text: #4a4038;
+	--bru-muted: #6f655c;
+	--bru-white: #ffffff;
+	--bru-icon-color: #5a3a1a;
+	--bru-serif: "Cormorant Garamond", Georgia, serif;
+	--bru-sans: "Montserrat", "Helvetica Neue", sans-serif;
+	--bru-container: min(1140px, 92vw);
+	--bru-radius-btn: 8px;
+	--bru-radius-card: 10px;
+	--bru-border: 1px solid rgb(184 149 107 / 22%);
+	--bru-shadow-card: 0 2px 12px rgb(74 63 54 / 6%);
+	--bru-icon-logo: 40px;
+
+	font-family: var(--bru-sans);
+	color: var(--bru-text);
+	background: var(--bru-cream);
+	min-height: 100vh;
+}
