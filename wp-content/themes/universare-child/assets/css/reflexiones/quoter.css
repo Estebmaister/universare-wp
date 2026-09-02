@@ -97,11 +97,21 @@ body.reflexiones-body #page {
 	text-align: center;
 }
 
+.reflexiones__content {
+	display: grid;
+	grid-template-rows: 1fr auto;
+	gap: 1.25rem;
+	min-height: clamp(16rem, 34vw, 19rem);
+	margin-bottom: 2rem;
+}
+
 .reflexiones__quote-wrap {
-	min-height: 8rem;
+	min-height: 0;
 	display: flex;
 	align-items: center;
-	margin-bottom: 1.25rem;
+	margin-bottom: 0;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 
 .reflexiones__quote {
@@ -125,7 +135,8 @@ body.reflexiones-body #page {
 }
 
 .reflexiones__attribution {
-	margin: 0 0 2rem;
+	margin: 0;
+	min-height: 1.5em;
 	text-align: right;
 	font-size: 0.95rem;
 	color: var(--bru-muted);
@@ -282,18 +293,25 @@ body.reflexiones-body #page {
 		padding: 2rem 1.25rem;
 	}
 
-	.reflexiones__actions {
-		flex-direction: column;
-		align-items: stretch;
+	.reflexiones__content {
+		min-height: 20rem;
 	}
 
-	.reflexiones__btn {
+	.reflexiones__actions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-items: center;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.reflexiones__btn--primary {
+		grid-column: 1 / -1;
 		width: 100%;
 	}
 
 	.reflexiones__btn--whatsapp,
 	.reflexiones__btn--instagram {
 		width: 2.75rem;
-		align-self: center;
 	}
 }

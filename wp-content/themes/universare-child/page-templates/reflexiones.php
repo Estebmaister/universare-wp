@@ -40,10 +40,12 @@ $instagram_url = universare_reflexiones_instagram_url();
 			<h1 class="reflexiones__title"><?php esc_html_e( 'Libros y reflexiones', 'universare-child' ); ?></h1>
 			<p class="reflexiones__subtitle"><?php esc_html_e( 'Universare', 'universare-child' ); ?></p>
 
-			<div class="reflexiones__quote-wrap">
-				<p class="reflexiones__quote" id="reflexiones-quote"></p>
+			<div class="reflexiones__content">
+				<div class="reflexiones__quote-wrap">
+					<p class="reflexiones__quote" id="reflexiones-quote"></p>
+				</div>
+				<p class="reflexiones__attribution" id="reflexiones-attribution"></p>
 			</div>
-			<p class="reflexiones__attribution" id="reflexiones-attribution"></p>
 
 			<div class="reflexiones__actions">
 				<button type="button" class="reflexiones__btn reflexiones__btn--primary" id="reflexiones-new">
