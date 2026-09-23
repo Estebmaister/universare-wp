@@ -171,6 +171,24 @@ studio stop -p "$SITE"                      # stop when done (or studio stop --a
 
 Full step-by-step (symlinks, admin, troubleshooting): `README.md` → Local development.
 
+## Reflexiones quoter (`/reflexiones/`)
+
+| Concern | Location |
+|---------|----------|
+| Template | `page-templates/reflexiones.php` |
+| Drive fetch + parse | `inc/reflexiones-quotes.php` |
+| Refresh on page load | `functions.php` → `universare_reflexiones_get_quotes( true )` |
+| Sheet URL | `mu-plugins/universare-bootstrap.php` filter `universare_reflexiones_drive_csv_url` |
+| CSV fallback | `data/libros-reflexiones.csv` |
+
+**Live sheet:** `https://docs.google.com/spreadsheets/d/1lOilYoxw0IP1c9FHR1TuQWcjTRQlbDUkgY-AzV1rViE/edit?gid=0` (public Viewer).
+
+**Validation:** row used iff `FRASE` non-empty AND (`LIBRO` OR `AUTOR` non-empty). Rows with only a phrase and no attribution are skipped.
+
+**Cache:** `universare_reflexiones_quotes` (day) + `universare_reflexiones_quotes_stale` (month) transients; refreshed each `/reflexiones/` visit when Drive URL is set.
+
+**Test:** `studio wp eval 'echo count(universare_reflexiones_get_quotes(true));'`
+
 ## Commands cheat sheet
 
 ```bash

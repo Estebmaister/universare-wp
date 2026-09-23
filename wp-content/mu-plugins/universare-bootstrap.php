@@ -149,3 +149,18 @@ function universare_ensure_reflexiones_page(): void {
 	update_option( 'universare_reflexiones_page_created', 1 );
 }
 add_action( 'init', 'universare_ensure_reflexiones_page', 22 );
+
+/**
+ * Google Sheet / Drive source for /reflexiones quotes.
+ *
+ * Paste the share link to "LIBROS Y REFLEXIONES" (or any CSV with FRASE, LIBRO, AUTOR).
+ * The file must be shared as "Anyone with the link can view".
+ *
+ * @see README.md — Reflexiones page
+ */
+add_filter(
+	'universare_reflexiones_drive_csv_url',
+	function (): string {
+		return 'https://docs.google.com/spreadsheets/d/1lOilYoxw0IP1c9FHR1TuQWcjTRQlbDUkgY-AzV1rViE/edit?gid=0';
+	}
+);

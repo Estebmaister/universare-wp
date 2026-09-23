@@ -161,6 +161,59 @@ After deploy, visit **https://universare.com/landing/** (auto-created on first s
 
 **Subdomain (optional):** cPanel → Subdominios → `landing.universare.com` → Redirect to `https://universare.com/landing/`
 
+## Reflexiones page (`/reflexiones/`)
+
+Random book quotes at **https://universare.com/reflexiones/**.
+
+| Piece | Location |
+|-------|----------|
+| Template | `page-templates/reflexiones.php` |
+| Loader + Drive sync | `inc/reflexiones-quotes.php` |
+| CSV fallback (offline) | `data/libros-reflexiones.csv` |
+| Sheet URL config | `mu-plugins/universare-bootstrap.php` → `universare_reflexiones_drive_csv_url` |
+
+**Live Google Sheet:** [LIBROS Y REFLEXIONES](https://docs.google.com/spreadsheets/d/1lOilYoxw0IP1c9FHR1TuQWcjTRQlbDUkgY-AzV1rViE/edit?gid=0)
+
+### Google Drive / Sheets sync
+
+On each `/reflexiones/` page load, WordPress fetches the sheet as CSV, parses it, and updates a transient cache. Editing the sheet updates the live page on the next visit — no git deploy needed.
+
+**Sheet requirements:**
+
+1. Columns (row 1): `FRASE`, `LIBRO`, `AUTOR`
+2. **Share → Anyone with the link → Viewer** (public read)
+3. Paste the sheet URL in `universare-bootstrap.php` if it changes
+
+**Behavior:**
+
+| Event | Result |
+|-------|--------|
+| Someone visits `/reflexiones/` | Fetches CSV from Google, updates WP transient cache |
+| Drive fetch fails | Uses last good cache, then bundled `data/libros-reflexiones.csv` |
+| Drive URL empty | Uses bundled CSV only (local dev default) |
+
+### Row validation (which quotes are used)
+
+A row is **included** only when:
+
+| Rule | Required |
+|------|----------|
+| `FRASE` not empty | Yes |
+| `LIBRO` or `AUTOR` (at least one) | Yes — needed for the attribution line under the quote |
+
+A row is **skipped** when `FRASE` is empty, or when both `LIBRO` and `AUTOR` are empty.
+
+**Fix skipped rows:** fill at least `LIBRO` or `AUTOR` in the sheet (e.g. `Vivir por Amor`). Reload `/reflexiones/` to pick them up.
+
+**Verify quote count (local):**
+
+```bash
+cd ~/Studio/universare-com-20260803
+studio wp eval 'echo count( universare_reflexiones_get_quotes( true ) );'
+```
+
+The bundled `data/libros-reflexiones.csv` is a fallback only; the Google Sheet is the source of truth in production.
+
 ## Requirements
 
 - Parent theme **Astra** installed on server (live active theme)

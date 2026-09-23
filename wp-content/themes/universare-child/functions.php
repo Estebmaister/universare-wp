@@ -191,7 +191,7 @@ function universare_child_enqueue_reflexiones(): void {
 		true
 	);
 
-	$quotes = universare_reflexiones_get_quotes();
+	$quotes = universare_reflexiones_get_quotes( true );
 
 	wp_localize_script(
 		'universare-reflexiones-quoter',
