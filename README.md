@@ -183,6 +183,7 @@ On each `/reflexiones/` page load, WordPress fetches the sheet as CSV, parses it
 1. Columns (row 1): `FRASE`, `LIBRO`, `AUTOR`
 2. **Share → Anyone with the link → Viewer** (public read)
 3. Paste the sheet URL in `universare-bootstrap.php` if it changes
+4. Line breaks inside `FRASE` (Alt+Enter / Cmd+Enter in Sheets) are preserved on the page
 
 **Behavior:**
 

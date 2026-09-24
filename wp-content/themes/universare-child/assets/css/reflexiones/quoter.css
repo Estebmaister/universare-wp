@@ -122,6 +122,7 @@ body.reflexiones-body #page {
 	color: var(--bru-brown);
 	position: relative;
 	padding-left: 1.5rem;
+	white-space: pre-line;
 }
 
 .reflexiones__quote::before {

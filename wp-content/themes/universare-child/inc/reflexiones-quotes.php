@@ -52,7 +52,7 @@ function universare_reflexiones_normalize_drive_url( string $url ): string {
 }
 
 /**
- * Normalize a CSV cell value.
+ * Normalize a CSV cell value (single line — libro, autor).
  *
  * @param string $value Raw cell value.
  */
@@ -61,6 +61,24 @@ function universare_reflexiones_normalize_cell( string $value ): string {
 	$value = preg_replace( '/\s+/u', ' ', $value );
 
 	return trim( (string) $value );
+}
+
+/**
+ * Normalize FRASE: keep intentional line breaks from the Sheet (Alt+Enter).
+ *
+ * @param string $value Raw cell value.
+ */
+function universare_reflexiones_normalize_phrase( string $value ): string {
+	$value = str_replace( array( "\r\n", "\r" ), "\n", $value );
+	$lines = explode( "\n", $value );
+	$lines = array_map(
+		static function ( string $line ): string {
+			return preg_replace( '/[ \t]+/u', ' ', trim( $line ) );
+		},
+		$lines
+	);
+
+	return trim( implode( "\n", $lines ) );
 }
 
 /**
@@ -82,7 +100,7 @@ function universare_reflexiones_parse_csv_handle( $handle ): array {
 			continue;
 		}
 
-		$phrase = universare_reflexiones_normalize_cell( (string) ( $row[0] ?? '' ) );
+		$phrase = universare_reflexiones_normalize_phrase( (string) ( $row[0] ?? '' ) );
 		$book   = universare_reflexiones_normalize_cell( (string) ( $row[1] ?? '' ) );
 		$author = universare_reflexiones_normalize_cell( (string) ( $row[2] ?? '' ) );
 
