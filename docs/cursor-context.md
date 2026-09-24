@@ -189,6 +189,8 @@ Full step-by-step (symlinks, admin, troubleshooting): `README.md` → Local deve
 
 **Test:** `studio wp eval 'echo count(universare_reflexiones_get_quotes(true));'`
 
+**Production PHP:** avoid PHP 8-only syntax in theme (e.g. union return types like `string|false`) — shared hosting may run PHP 7.4.
+
 ## Commands cheat sheet
 
 ```bash

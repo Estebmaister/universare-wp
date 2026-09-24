@@ -147,8 +147,10 @@ function universare_reflexiones_parse_csv( string $path ): array {
 
 /**
  * Fetch CSV body from Google Drive / Sheets.
+ *
+ * @return string|false CSV body or false on failure.
  */
-function universare_reflexiones_fetch_drive_csv(): string|false {
+function universare_reflexiones_fetch_drive_csv() {
 	$url = universare_reflexiones_drive_csv_url();
 	if ( '' === $url ) {
 		return false;
